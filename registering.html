@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!-- Denne siden er utviklet av Sahatsawat . Sist endrete 16.oktober 2020 -->
+<!-- Dennse side er oppdaterte av Raymond. Sist endtete 15.november 2020. endringer er kommenterte.-->
+
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valg - Registering</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <script src="js/hamburger.js"></script>
+    <script src="js/forms.js"></script> <!-- added script for å skjekke at begge passord matcher-->
+</head>
+<body>
+    <header>
+    	<nav id="menu">
+            <a href="index.html"> <img class="dtpics" src="images/election.png" alt="valgurne" height="100" width="130"> </a>
+            <button id="hamburgermeny" onclick=toggleMenu()>MENY</button>
+            <ul id="menuitems">
+                <li id="home"><a href="index.html">Home</a></li>
+				<li><a href="nominering.html">Nominering</a></li>
+				<li><a href="avstemning.html">Avstemning</a></li>
+				<li><a href="registering.html">Registering</a></li>
+				<li><a href="logginn.html">Logg inn</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Register</h1> <!-- flyttet utenfor form-->
+        <p>Fyll ut for å registrere deg!</p>
+        <!-- <form action="avstemning.html" method="post"> -->
+        <form name = "reg_form" action="php/reg_bruker.php" method="post" onsubmit="return passordsjekk()">
+            <!-- <div class="container"> -->
+
+            <label for="fornavn">Skriv ditt fornavn</label> <!-- added field for for- og etternavn-->
+            <br/>
+            <input type="text" placeholder="Skriv fornavn" name="fornavn" id="fornavn" required>
+            <br/>
+            <label for="etternavn">Skriv ditt etternavn</label>
+            <br/>
+            <input type="text" placeholder="Skriv etternavn" name="etternavn" id="etternavn" required>
+            <br/>
+
+            <label for="email">Velg Email</label>
+            <br/>
+            <input type="email" placeholder="Skriv email" name="email" id="email" required>
+            <br/>
+            <label for="passord1">Velg passord</label>
+            <br/>
+            <input type="password" placeholder="Skriv passord" name="passord1" id="passord1" required>
+            <br/>
+            <label for="passord2">Gjenta passordet</label>
+            <br/>
+            <input type="password" placeholder="Gjenta passordet" name="passord2" id="passord2" onblur="passordsjekk()" required>
+            <br/>
+            <button type="submit" class="registerknapp" name="register">Register</button>  <!-- added name for bruk i php-skriptet. Trenger js for sjekke passord??? -->
+              <!-- </div> -->
+        </form>
+    </main>
+<footer>
+    <h3>Kontakt oss</h3>
+    <p> Email: r-15@teams.usn.no <span class="copy">&copy; Gruppe R-15 2020</span></p>
+</footer>
+</body>
+</html>

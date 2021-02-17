@@ -1,0 +1,52 @@
+/* siden utviklet av alle 16.oktober 2020 */
+
+input[type=text], input[type=password], input[type=email], input[type=oldpassword], input[type=newpassword], input[type=repeatpassword] {
+  width: 150px;
+  padding: 15px;
+  margin: 10px 0 20px 0;
+  border: align;
+  display: inline-block;
+  background: #cecece;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: rgb(190, 190, 190);
+  outline: none;
+}
+
+input[type=file]  {
+  padding: 15px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.registerknapp {
+  background-color: rgb(71, 71, 71);
+  color: white;
+  padding: 15px 15px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100px;
+}
+
+label [for="kandidat_info"] {
+  font-weight: 100;
+  font-size: x-small;
+}
+
+label {
+  font-weight: 600;
+}
+
+
+
+/* Nettbrett & Desktop  utviklet av Raymond Dowling sist endret 20.november 2020*/
+/* Utnytt breden ved å dele skjeamet i kolonner 
+@media only screen and (min-width: 7768px) { 
+  form[name = reg_form] {column-count: 2;}
+  #email {
+      break-after: column;
+  }
+}
+*/

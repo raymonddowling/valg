@@ -1,0 +1,148 @@
+/* siden utviklet av alle 16.oktober 2020 */
+
+html {
+    font-size: 16px;
+}
+
+nav {
+    background-color: rgba(89, 158, 175, 1);
+    position: fixed;
+    top: 0px;
+    display: grid;
+    grid-template-columns: auto auto 130px max-content 3%; /* ekstra kollone til logg inn/ut knapp*/
+    grid-template-rows: 50px auto; 
+    grid-column-gap: 2px;
+    width: 99%;
+    /* stop menuitems diplaying on next row after logginn btn added */
+    grid-auto-flow: column;
+}
+
+#hamburgermeny { /*endret fra nav button TILL #hamburgermeny */
+    text-decoration: overline underline line-through solid white;
+    color: rgba(89, 158, 175, 1);
+    background-color: rgba(89, 158, 175, 1);
+    border-radius: 10%;
+    border: none;
+    padding: 3px 1px;
+    grid-column-end: -2;
+}
+
+.logginnBtn { /* new in sprint 2 */
+    color: white;
+    background-color: rgb(110, 110, 110);
+    background-color: #3c5c7d;
+    text-align: center;
+    text-decoration: none;
+    padding: 1px;
+    border-radius: 10%;
+    grid-column-start: 3;
+}
+
+#menuitems {
+    display: none;
+    position: relative;
+    grid-column-end: -2;
+    list-style-type: none; 
+}
+
+ul#menuitems  li {
+    line-height: 1.75em;
+}
+
+ul#menuitems li a {
+    color: #000000; 
+    text-decoration: none;
+}
+
+body {
+    background-color: white;
+   /* margin: 0;
+    padding: 0; */
+}
+
+main {
+    width: 99%;
+    margin-top: 40px;
+}
+
+footer {
+    background-color: #324A51;
+    bottom: 0px;
+    position: fixed;
+    color: white;
+    width: 99%;
+    font-size: 0.75em;
+}
+
+footer h3 {
+    font-size: 1.2em;
+}
+
+.copy {
+    float: right;
+}
+
+.dtpics {
+    display: none;
+}
+
+p#nominasjon {
+    background-color: yellow;
+    font-weight:  600;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* Nettbrett */
+@media only screen and (min-width: 768px) { 
+    
+    .dtpics {display: inline;}
+    
+    #choicepick {
+        float: right;
+    }
+
+    nav {
+        background-color: rgba(89, 158, 175, 1);
+        grid-template-rows: 100px; /* auto; */
+        grid-auto-flow: column;
+    }
+    
+    #hamburgermeny {
+        display: none;
+    }
+
+    .logginBtn {  /* ######### OMMITTED FROM ONE DRIVE ################# */
+        grid-column-start: 3;
+        color: yellow; /* NOT SHOWING YELLOW */
+        grid-row: 1;
+    }
+    
+    #menuitems {
+        display: inline;
+        grid-column: 2 / -4; /* / -3; */
+        grid-row: 1;
+        margin-top: 1.5em;
+    }
+    
+    ul#menuitems li + li {
+        display: inline;
+        margin-right: 1.667em;
+        letter-spacing: 1px;
+        text-align: center;
+        font-size: 1.1em;
+    }
+
+    #home {
+        display:none;
+    }
+
+    main {
+        margin-top: 140px;
+    }   
+}
+
+/* Desktop */
+@media only screen and (min-width: 1024px) { 
+
+}

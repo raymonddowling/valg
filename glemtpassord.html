@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!-- Denne siden er utviklet av Serhat Bawer Guzel. Sist endrete 10.november 2020 -->
+
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glemt Passord</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <script src="js/hamburger.js"></script>
+</head>
+<body>
+    <header>
+        <nav id="menu">
+            <a href="index.html"> <img class="dtpics" src="images/election.png" alt="valgurne" height="100" width="130"> </a>
+            <button id="hamburgermeny" onclick=toggleMenu()>MENY</button>
+            <ul id="menuitems">
+                <li id="home"><a href="index.html">Home</a></li>
+				<li><a href="nominering.html">Nominering</a></li>
+				<li><a href="avstemning.html">Avstemning</a></li>
+				<li><a href="registering.html">Registering</a></li>
+				<li><a href="logginn.html">Logg inn</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Glemt Passord</h2>
+        <p>Fyll ut for å finne passordet!</p>
+        <form method="post">
+            <label for="email">Skriv Email</label> <br/>
+            <input type="email" placeholder="Skriv email" name="email" id="email" required>
+            <br/>         
+            <input type="submit" value="Søk" class="registerknapp">
+        </form>
+       
+    </main>
+    <footer>
+        <h3>Kontakt oss</h3>
+        <p> Email: r-15@teams.usn.no <span class="copy">&copy; Gruppe R-15 2020</span></p>
+</footer>
+
+</body>
+</html>

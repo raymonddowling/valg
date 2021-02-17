@@ -1,0 +1,7 @@
+.vscode
+test*
+*.pdf
+*.zip
+entTur.js
+debug.log
+

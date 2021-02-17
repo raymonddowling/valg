@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!-- Denne siden er utviklet av Serhat Bawer Guzel sist endret 16.oktober 2020-->
+
+<html lang="no">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nominering</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/forms.css" rel="stylesheet" type="text/css" />
+<script src="js/hamburger.js"></script>
+</head>
+<body>
+
+<header>
+	<nav id="menu">
+		<a href="index.html"> <img class="dtpics" src="images/election.png" alt="valgurne" height="100" width="130"> </a>
+		<button id="hamburgermeny" onclick=toggleMenu()>MENY</button>
+		<ul id="menuitems">
+			<li id="home"><a href="index.html">Home</a></li>
+			<li><a href="nominering.html">Nominering</a></li>
+			<li><a href="avstemning.html">Avstemning</a></li>
+			<li><a href="registering.html">Registering</a></li>
+			<li><a href="logginn.html">Logg inn</a></li>
+		</ul>
+	</nav>
+</header>
+
+<main>
+<h2>Nominering</h2>
+
+
+
+<h3>Detaljer</h3>
+
+<label>Velg Personene du vil nominere: </label>
+<select class="groupnr" name="groupnr" required>
+	<option value="Kristina Schaer">Kristina Schaer</option>
+	<option value="Snorre Dias">Snorre Dias</option>
+	<option value="Kevin Øksnavad">Kevin Øksnavad</option>
+	<option value="Ingrid Helle">Ingrid Helle</option>
+
+</select>
+
+<p>Hvis det er noen du vil eventuelt nominere, fyll ut nede</p>
+
+<label>Skriv navnet du vil nominere: </label> 
+<form>
+	<br/>
+	<input type="text" placeholder="Navn" required>
+	<br/>
+	<label  for="email">Skriv email: </label>
+	<br/>
+	<input type="email" placeholder="Skriv email" name="email" id="email" required>
+	<br/>
+	<button type="submit" class="registerknapp">Nominer</button>
+	<br/>
+</form>
+</main>
+
+
+
+<footer>
+<h3>Kontakt oss</h3>
+<p> Email: r-15@teams.usn.no <span class="copy">&copy; Gruppe R-15 2020</span></p>
+</footer>
+</body>
+</html>
