@@ -3,8 +3,8 @@ session_start();
 //Siden utviklet av Raymond Dowling sist endret 17.feburar 2021
 // sjekk om logginn er admin
 //on valginfo
-// include 'dbconnect_Local.php'; // ############ LOCAL TEST ####################################
-include 'dbconnect.php';
+include 'dbconnect_Local.php'; // ############ LOCAL TEST ####################################
+// include 'dbconnect.php';
 $mydb = new mypdo();
 if(!$mydb) {
     exit("feil med forbindelse");
@@ -42,16 +42,17 @@ if(isset($_POST["logginn"])) { // knapp trykket fra logginn siden
         }
 
         $fulltnavn = $result['fnavn']." ".$result['enavn'];
-        $brukertype = $result['bruketype']; // #### 17.feb sprint 4 tar være på bruketype og justere innloggetMeny.php
+        $brukertype = $result['brukertype']; // #### 17.feb sprint 4 tar være på bruketype og justere innloggetMeny.php
         $_SESSION['navn'] = $fulltnavn;
         $_SESSION['innlogget'] = TRUE;
         $_SESSION['epost'] = $bruker;
         $_SESSION['kandidat'] = $kandidat;
-        $_SESSION['brukertype'] = $brukertype // #### Set i cookie
+        $_SESSION['brukertype'] = $brukertype; // #### Set i cookie
         // echo '<script>alert("Logginn vellykket");</script>';
         // echo '<script>window.location.assign("../avsteming.php"</script>';
         // var_dump($kandidat);
         // echo "<br> res" . var_dump($res);
+        // echo "brukertype:  $brukertype";
         header("Location: ../avstemning.php");
         
     } else {

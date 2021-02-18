@@ -6,6 +6,7 @@
 // $navn = "Logget inn som " . $_SESSION['navn'];
 $name = $_SESSION['navn'];
 $kandidate = $_SESSION['kandidat'];
+$brukertype = $_SESSION['brukertype'];
 
 
 ?> 
@@ -20,6 +21,7 @@ $kandidate = $_SESSION['kandidat'];
 	<li><a href="byttpassord.php">Bytt passord</a></li>
 	<?php
 	if ($kandidate){ echo '<li><a href="myprofile.php">Kandidatur</a></li>'; }
+	if ($brukertype == 2) {echo '<li><a href="valgadmin.php">Administere Valget</a></li>';}
 	?>
 	<!-- <li><?php echo $byttpassord ?>Bytt Passord</a></li>  ?? ungår bytting mellome html og php modus??? -->
 	<!--<li><?php echo $navn ?></li>-->
