@@ -14,7 +14,7 @@ if(!$mydb) {
 <!DOCTYPE html>
 <!-- Denne siden er utviklet av Serhat Bawer Guzel sist endret 16.oktober 2020-->
 
-<html lang="no">
+<html lang="no">l
 
 <head>
 <meta charset="UTF-8">
@@ -23,6 +23,7 @@ if(!$mydb) {
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/forms.css" rel="stylesheet" type="text/css" />
 <script src="js/hamburger.js"></script>
+<script src="js/forms.js"></script>
 </head>
 <body>
 
