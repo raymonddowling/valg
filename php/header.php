@@ -33,7 +33,6 @@ MKR;
 echo <<<MKR
 	</nav>
 </header>
-<main>test</main></body></html>
 MKR;
 ?>
 <!-- Så starter med <main> her! -->
