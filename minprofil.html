@@ -1,0 +1,78 @@
+<?php
+
+session_start():
+include "Connection.php";
+
+if(isset($_POST['edit']))
+{
+    $id=$_SESSION['id'];
+    $usr=$_POST["usr"];
+    $email=$_POST["email"];
+    $Knr=$_POST["Knr"];
+    $Kannr=$_POST["Kannr"];
+
+    $update = "update users set
+usr="$usr", email="$email", Knr="$Knr", Kannr="$Kannr", where id= "$id'";
+    $drv =mysql($conn,$update);
+if ($drv)
+    {
+        /*Succesful*/
+        header("location:Dashboard.php");
+    }
+    else
+    {
+        /*Profilen kunnes ikke oppdateres
+        header('location:minprofil_edit.php');
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset ="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Min profile</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script src="js/hamburger.js"></script>
+    </head>
+    <body>
+
+        <header>
+            <nav id="menu">
+                <a href="default.php"> <img class="dtpics" src="images/election.png" alt="valgurne" height="100" width="130"> </a>
+                <button id="hamburgermeny" onclick=toggleMenu()>MENY</button>
+                <ul id="menuitems">
+                        <li id="home"><a href="index.html">Home</a></li>
+                        <li><a href="nominering.html">Nominering</a></li>
+                        <li><a href="avstemning.html">Avstemning</a></li>
+                        <li><a href="registering.html">Registering</a></li>
+                        <li><a href="logginn.html">Logg inn</a></li>
+                </ul>
+            </nav>
+            </header>
+
+        <center>
+            <div class="box">
+                <img src="images/profiletest.png"></image>
+                <input type="file" name="" id="file" accept="image/*">
+                <label for="file">Rediger bilde</label>
+                <input type="text" name="" placeholder="Navn">
+                <input type="email" name="" placeholder="Email">
+                <input type="text" name="" placeholder="Kandidatnummer">
+                <input type="text" name="" placeholder="Kontaktnummer">
+                <button class="registerknapp" style="float: left;margin:5px 0 0 20%;">Avbryt</button>
+                <button class="registerknapp" style="float: right;margin:5px 15% 0 0;">Ferdig</button>
+                <button class="registerknapp" action="php/trekk_kandidat.php" style="float: center;margin:5px 10% 0 15%;">Trekk Kandidat</button>
+                
+                <h3><strong>Informasjon om kandidat</strong></h3>
+                <p contenteditable="true">Test. Denne teksten kan redigeres dersom dere trykker på teksten!</p>
+            </div>
+        </center>
+
+
+        
+    </body>
+</html>
+

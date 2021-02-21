@@ -26,3 +26,31 @@ function vismelding() {
 function formtest() {
     alert("Hello there!");
 }
+
+function kopitr(radnr) {
+    // alert(radnr);
+    // hent verdier i raden 
+    var rad = document.getElementsByClassName("rad".concat(radnr));
+    var v = rad[0].innerHTML.replace(/\<td\>/g, "*");
+    v = v.replace(/\<\/td\>/g, "");
+   
+    // console.log(typeof(v));
+    // console.log(v);
+    // console.log(v.replace(/\<td\>|\<\/td\>/g, "*"));
+
+    var verdier = v.split("*");  //gjør om til array
+    // console.log(verdier);
+
+
+    var f = document.forms["valgdato"];
+    for (i = 0; i < f.length-1; i++) {
+        f.elements[i].value = verdier[i+2];
+    }
+
+   
+/* 
+    for (i = 0; i < f.length-1; i++) {
+        f.elements[i].value = verdier[i+1];
+    }
+     */
+}
