@@ -1,5 +1,6 @@
 <?php
 session_start();
+/* 
 ?>
 
 <!DOCTYPE html>
@@ -19,9 +20,9 @@ session_start();
 <body>
 
 <?php
-
-include 'dbconnect_Local.php'; //########### TEST LOCAL ####################
-// include 'dbconnect.php'; //########### TEST FELLESDB ####################
+ */
+// include 'dbconnect_Local.php'; //########### TEST LOCAL ####################
+include 'dbconnect.php'; //########### TEST FELLESDB ####################
 $mydb = new mypdo();
 
 if(!$mydb) { 
@@ -30,6 +31,7 @@ if(!$mydb) {
 
 if (isset($_POST['register'])) {
     echo "button pressed <br/>";
+    var_dump($_POST);
 
     $epost = $_POST["email"];
     $pord = $_POST["passord1"];
@@ -60,16 +62,17 @@ if($lykkes) {
     echo "<script>alert(\"Registering vellykket\")</script>";
     $_SESSION['navn'] = $epost;
     $_SESSION['innlogget'] = TRUE;
-    header("Location: ../avstemning.php?".SID);
+   // header("Location: ../avstemning.php?".SID);
 } else {
     echo "<br/>Reg mislykket";
     echo "<script>alert(\"Registering mislykket\")</script>";
-    header("Location: ../index.html");
+    // header("Location: ../index.html");
 } 
 ?>
 
-</main>
+<!-- </main>
 
 </body>
 
 </html>
+ -->
