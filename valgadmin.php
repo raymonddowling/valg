@@ -50,31 +50,32 @@ echo "</table>";
 
 echo <<<MKR
 </select>
-
-<form name="valgdato" id="valgdato" action="php/valgdato.php" method="POST" enctype=”multipart/form-data”> <!-- target for melding & js for dato-sjekk -->
-    <label for="startforslag">Startdato for Nominering</label><br/>
+<h3>Endre datoene</h3>
+<form name="valgdato" id="valgdato" action="php/valgdato.php" method="POST" enctype=”multipart/form-data” class="valgform"> <!-- target for melding & js for dato-sjekk -->
+    <label for="startforslag">Startdato for Nominering</label>
     <input type="datetime" name="startforslag" id="startforslag" placeholder="yyyy-mm-dd hh:mm:ss">
     <label for="sluttforslag">Sluttdato for Nominering</label>
     <input type="datetime" name="sluttforslag" id="sluttforslag" placeholder="yyyy-mm-dd hh:mm:ss">
     <label for="startvalg">Startdato for Valg</label>
-    <input type="dateime" name="startvalg" id="startvalg" placeholder="yyyy-mm-dd hh:mm:ss">
+    <input type="datetime" name="startvalg" id="startvalg" placeholder="yyyy-mm-dd hh:mm:ss">
     <label for="sluttvalg">Sluttdato for Valg</label>
     <input type="datetime" name="sluttvalg" id="sluttvalg" placeholder="yyyy-mm-dd hh:mm:ss">
-    <input type="submit" value="endre" name="endre">
+    <input type="submit" value="endre" name="endre" class="registerknapp1">
 </form>
 
-<form name="nyvalg" id="nyvalgdato" action="php/valgdato.php" method="POST" enctype=”multipart/form-data”> <!-- target for melding & js for dato-sjekk -->
+<h3>Legg till Nytt Valg</h3>
+<form name="nyvalg" id="nyvalgdato" action="php/valgdato.php" method="POST" enctype=”multipart/form-data” class="valgform"> <!-- target for melding & js for dato-sjekk -->
     <label for="tittel">Tittel</label>
     <input type="text" name="tittel" id="tittel" placeholder="Valg tittel">
-    <label for="startforslag">Startdato for Nominering</label><br/>
+    <label for="startforslag">Startdato for Nominering</label>
     <input type="datetime" name="startforslag" id="startforslag" placeholder="yyyy-mm-dd hh:mm:ss">
     <label for="sluttforslag">Sluttdato for Nominering</label>
     <input type="datetime" name="sluttforslag" id="sluttforslag" placeholder="yyyy-mm-dd hh:mm:ss">
     <label for="startvalg">Startdato for Valg</label>
-    <input type="dateime" name="startvalg" id="startvalg" placeholder="yyyy-mm-dd hh:mm:ss">
+    <input type="datetime" name="startvalg" id="startvalg" placeholder="yyyy-mm-dd hh:mm:ss">
     <label for="sluttvalg">Sluttdato for Valg</label>
     <input type="datetime" name="sluttvalg" id="sluttvalg" placeholder="yyyy-mm-dd hh:mm:ss">
-    <input type="submit" value="register" name="register">
+    <input type="submit" value="register" name="register"class="registerknapp1">
 </form>
 </main>
 MKR;

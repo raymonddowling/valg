@@ -39,7 +39,55 @@ label {
   font-weight: 600;
 }
 
+/* Tabell i valagadmin knyttet til form for å endre innhold */
+table, td {
+  border: black;
+  border-collapse: collapse;
+  /* outline-color: green; */
+  border-style: double;
+  padding-right: 10px;
+  text-align: center;
+  /* padding: 5px; */
+}
 
+table {
+  margin-bottom: 20px;
+}
+
+.valgform {
+  display: flex;
+  flex-direction: column;
+}
+
+.registerknapp1 {
+  background-color:#6E5A7E;
+  color: white;
+  padding: 15px 15px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100px;
+}
+
+.registerknapp1:focus {
+  text-transform: uppercase;
+  outline-style: dashed;
+  border: #000 dotted 5px;
+}
+
+.valgform input[type="datetime"], .valgfor input[type="text"] {
+  width: 150px;
+  padding: 15px;
+  margin: 10px 0 20px 0;
+  /* border: align; */
+  /* display: inline-block; */
+  background: #324A51;
+  color: white;
+}
+.valgform input[type="datetime"]:focus, .valgform input[type="text"]:focus {
+  background: #95B0B7;
+  color: #000;
+}
 
 /* Nettbrett & Desktop  utviklet av Raymond Dowling sist endret 20.november 2020*/
 /* Utnytt breden ved å dele skjeamet i kolonner 

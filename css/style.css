@@ -10,7 +10,7 @@ nav {
     top: 0px;
     display: grid;
     grid-template-columns: auto auto 130px max-content 3%; /* ekstra kollone til logg inn/ut knapp*/
-    grid-template-rows: 50px auto; 
+    grid-template-rows: 50px auto;
     grid-column-gap: 2px;
     width: 99%;
     /* stop menuitems diplaying on next row after logginn btn added */
@@ -29,8 +29,8 @@ nav {
 
 .logginnBtn { /* new in sprint 2 */
     color: white;
-    background-color: rgb(110, 110, 110);
-    background-color: #3c5c7d;
+    background-color: #6e5a7e;
+    /* background-color: #3c5c7d; */
     text-align: center;
     text-decoration: none;
     padding: 1px;
@@ -42,7 +42,7 @@ nav {
     display: none;
     position: relative;
     grid-column-end: -2;
-    list-style-type: none; 
+    list-style-type: none;
 }
 
 ul#menuitems  li {
@@ -50,7 +50,7 @@ ul#menuitems  li {
 }
 
 ul#menuitems li a {
-    color: #000000; 
+    color: #000000;
     text-decoration: none;
 }
 
@@ -62,7 +62,8 @@ body {
 
 main {
     width: 99%;
-    margin-top: 40px;
+    margin-top: 50px;
+    margin-bottom: 70px;
 }
 
 footer {
@@ -72,6 +73,7 @@ footer {
     color: white;
     width: 99%;
     font-size: 0.75em;
+    height: 60px;
 }
 
 footer h3 {
@@ -87,17 +89,20 @@ footer h3 {
 }
 
 p#nominasjon {
+    /* display message via cookie on return to page */
     background-color: yellow;
     font-weight:  600;
     text-transform: uppercase;
     text-align: center;
 }
 
+
+
 /* Nettbrett */
-@media only screen and (min-width: 768px) { 
-    
+@media only screen and (min-width: 768px) {
+
     .dtpics {display: inline;}
-    
+
     #choicepick {
         float: right;
     }
@@ -107,24 +112,24 @@ p#nominasjon {
         grid-template-rows: 100px; /* auto; */
         grid-auto-flow: column;
     }
-    
+
     #hamburgermeny {
         display: none;
     }
 
     .logginBtn {  /* ######### OMMITTED FROM ONE DRIVE ################# */
         grid-column-start: 3;
-        color: yellow; /* NOT SHOWING YELLOW */
+        /*color: yellow; NOT SHOWING YELLOW*/
         grid-row: 1;
     }
-    
+
     #menuitems {
         display: inline;
         grid-column: 2 / -4; /* / -3; */
         grid-row: 1;
         margin-top: 1.5em;
     }
-    
+
     ul#menuitems li + li {
         display: inline;
         margin-right: 1.667em;
@@ -139,10 +144,10 @@ p#nominasjon {
 
     main {
         margin-top: 140px;
-    }   
+    }
 }
 
 /* Desktop */
-@media only screen and (min-width: 1024px) { 
+@media only screen and (min-width: 1024px) {
 
 }
