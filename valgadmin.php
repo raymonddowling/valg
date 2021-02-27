@@ -2,7 +2,7 @@
 session_start();
 
 // siden utviklet av Raymond Dowling sist endret 18.feburar 2021
-$innlogget = TRUE; // $_SESSION['innlogget'];
+$innlogget = $_SESSION['innlogget'];
 
 // ###### koble til databasen ###########
 include 'php/dbconnect.php';
@@ -46,12 +46,15 @@ while ($radnr < $stm -> rowCount()) {
     echo $tr;
     $radnr ++;
 }
+// echo "<tr><td colspan=\"6\">";
+// echo "</td></tr>";
 echo "</table>";
+echo "<input type=\"button\" class=\"registerknapp1\" value=\"Nytt Valg\" onclick=\"visValgform(2,3);\">";
 
 echo <<<MKR
 </select>
-<h3>Endre datoene</h3>
-<form name="valgdato" id="valgdato" action="php/valgdato.php" method="POST" enctype=”multipart/form-data” class="valgform"> <!-- target for melding & js for dato-sjekk -->
+<h3 class="valgform">Endre datoene</h3>
+<form name="valgdato" id="valgdato" action="php/valgdato.php" method="POST" enctype=”text/plain” class="valgform"> <!-- target for melding & js for dato-sjekk -->
     <label for="startforslag">Startdato for Nominering</label>
     <input type="datetime" name="startforslag" id="startforslag" placeholder="yyyy-mm-dd hh:mm:ss">
     <label for="sluttforslag">Sluttdato for Nominering</label>
@@ -60,11 +63,11 @@ echo <<<MKR
     <input type="datetime" name="startvalg" id="startvalg" placeholder="yyyy-mm-dd hh:mm:ss">
     <label for="sluttvalg">Sluttdato for Valg</label>
     <input type="datetime" name="sluttvalg" id="sluttvalg" placeholder="yyyy-mm-dd hh:mm:ss">
-    <input type="submit" value="endre" name="endre" class="registerknapp1">
+    <input type="submit" value="Endre" name="endre" class="registerknapp1">
 </form>
 
-<h3>Legg till Nytt Valg</h3>
-<form name="nyvalg" id="nyvalgdato" action="php/valgdato.php" method="POST" enctype=”multipart/form-data” class="valgform"> <!-- target for melding & js for dato-sjekk -->
+<h3 class="valgform">Legg till Nytt Valg</h3>
+<form name="nyvalg" id="nyvalgdato" action="php/valgdato.php" method="POST" enctype=”text/plain” class="valgform"> <!-- target for melding & js for dato-sjekk -->
     <label for="tittel">Tittel</label>
     <input type="text" name="tittel" id="tittel" placeholder="Valg tittel">
     <label for="startforslag">Startdato for Nominering</label>
@@ -75,7 +78,7 @@ echo <<<MKR
     <input type="datetime" name="startvalg" id="startvalg" placeholder="yyyy-mm-dd hh:mm:ss">
     <label for="sluttvalg">Sluttdato for Valg</label>
     <input type="datetime" name="sluttvalg" id="sluttvalg" placeholder="yyyy-mm-dd hh:mm:ss">
-    <input type="submit" value="register" name="register"class="registerknapp1">
+    <input type="submit" value="Register" name="register"class="registerknapp1">
 </form>
 </main>
 MKR;

@@ -67,7 +67,7 @@ main {
 }
 
 footer {
-    background-color: #324A51;
+    background-color: #324A51; /*#3c5c7d*/
     bottom: 0px;
     position: fixed;
     color: white;

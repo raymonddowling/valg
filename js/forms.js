@@ -38,7 +38,14 @@ function kopitr(radnr) {
     console.log(verdier);
 
     const f = document.forms["valgdato"];
-    for (i = 0; i < f.length-3; i++) { // Tar ikke med submit-knappen
+    for (i = 0; i < f.length-1; i++) { // Tar ikke med submit-knappen
         f.elements[i].value = verdier[i+1];
     }
+    visValgform(0,1);
+}
+
+function visValgform(head, form) {
+    const valgforms = document.getElementsByClassName("valgform");
+    valgforms[head].style.display = "flex";
+    valgforms[form].style.display = "flex";
 }

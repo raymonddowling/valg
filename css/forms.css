@@ -51,11 +51,23 @@ table, td {
 }
 
 table {
+  display: inline-flex;
   margin-bottom: 20px;
+  margin-right: 2px;
+  /* font-size: 0.75em; */
+}
+
+/* table tr td a { lenke i tabllen skal ser ut som knapp */
+#nyttvalg { /* lenke i tabllen skal ser ut som knapp */
+  background-color: #6E5A7E;
+  color: white;
+  cursor: pointer;
+  /* border-radius: 10%;
+  width: 80%; */
 }
 
 .valgform {
-  display: flex;
+  display: none;
   flex-direction: column;
 }
 
@@ -71,11 +83,10 @@ table {
 
 .registerknapp1:focus {
   text-transform: uppercase;
-  outline-style: dashed;
-  border: #000 dotted 5px;
+  border: #599EAF solid 5px;
 }
 
-.valgform input[type="datetime"], .valgfor input[type="text"] {
+.valgform input[type="datetime"], .valgform input[type="text"] {
   width: 150px;
   padding: 15px;
   margin: 10px 0 20px 0;

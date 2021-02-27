@@ -18,12 +18,13 @@ if (isset($_POST['endre'])) {
     echo 'Endre';
     $update = "UPDATE valg SET startforslag = :stf, sluttforslag = :slf, startvalg = :stv, sluttvalg = :slv";
     $stm = $mydb -> prepare($update);
-    $stm -> bindParam(":stf", $startforslag);
-    $stm -> bindParam(":slf", $sluttforslag);
-    $stm -> bindParam(":stv", $startforslag);
-    $stm -> bindParam(":slv", $sluttforslag);
+    $stm -> bindParam(":stf", $startforslag, PDO::PARAM_STR);
+    $stm -> bindParam(":slf", $sluttforslag, PDO::PARAM_STR);
+    $stm -> bindParam(":stv", $startvalg, PDO::PARAM_STR);
+    $stm -> bindParam(":slv", $sluttvalg, PDO::PARAM_STR);
     $stm -> execute();
-    
+    $stm -> closeCursor();
+    var_dump($sluttvalg);
 }
 
 if (isset($_POST['register'])) {
@@ -34,9 +35,10 @@ if (isset($_POST['register'])) {
     $stm -> bindParam(":tit", $tittel);
     $stm -> bindParam(":stf", $startforslag);
     $stm -> bindParam(":slf", $sluttforslag);
-    $stm -> bindParam(":stv", $startforslag);
-    $stm -> bindParam(":slv", $sluttforslag);
+    $stm -> bindParam(":stv", $startvlag);
+    $stm -> bindParam(":slv", $sluttvlag);
     $stm -> execute();
+    $stm -> closeCursor();
 }
 
 ?>

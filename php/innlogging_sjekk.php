@@ -1,21 +1,20 @@
 <?php 
 session_start();
-//Siden utviklet av Raymond Dowling sist endret 17.feburar 2021
+//Siden utviklet av Raymond Dowling sist endret 27.feburar 2021
 // sjekk om logginn er admin
 //on valginfo
-include 'dbconnect_Local.php'; // ############ LOCAL TEST ####################################
-// include 'dbconnect.php';
+include 'dbconnect.php';
 $mydb = new mypdo();
 if(!$mydb) {
     exit("feil med forbindelse");
 }
 
-function isKandidat() {
+function isKandidat($epost) {
     echo "Call isKandidat";
     // ###### sjekk om bruker er kandidat ############
     $sql1 = "SELECT bruker FROM kandidat WHERE bruker = :bruker"; //AND avslått FALSE
     $stm1 = $GLOBALS['mydb'] -> prepare($sql1);
-    $stm1 -> bindParam(":bruker", $bruker);
+    $stm1 -> bindParam(":bruker", $epost);
     $stm1 -> execute();
     $res = $stm1 -> fetch(PDO::FETCH_ASSOC);
     if($stm1 -> rowCount() == 1) {
@@ -37,17 +36,26 @@ function isValg() {
 
 function isGyldigPeriode($sql) {
     echo "\nIsGyldigPeriode\n";
-    var_dump($sql);
+    // var_dump($sql);
     $stm = $GLOBALS['mydb'] -> prepare($sql);
     $stm -> execute();
-    $res = $stm -> fetch(PDO::FETCH_ASSOC);
-    print_r($res);
+    $res = $stm -> fetch(PDO::FETCH_BOTH);
+    // $res = $stm -> fetchAll();
+    // print_r($res);
     //Sjekk mot perioden mot dagens dato
-    /* if (date('Y-m-d') >= $res[0] && date('Y-m-d') <= $res[1]) {
+    $idag = strtotime(date('Y-m-d H:i:s'));
+    $periode_start = strtotime($res[0]);
+    $periode_slutt = strtotime($res[1]);
+    // echo $idag . "\t  Idag\n";
+    // echo $periode_start . "\t  Start\n";
+    // echo $periode_slutt . "\t  slutt\n";
+    // echo "idag minus start ". ($idag - $periode_start);
+
+    if ($idag >= $periode_start && $idag <= $periode_slutt) {
         return TRUE;
     } else {
         return FALSE;
-    } */
+    }
 
 }
 
@@ -63,20 +71,18 @@ if(isset($_POST["logginn"])) { // knapp trykket fra logginn siden
     $stm -> bindParam(":bruker", $bruker);
     $stm -> bindParam(":ps", $ps);
     $stm->execute();
-    
+    $result = $stm -> fetch(PDO::FETCH_ASSOC);
     // echo "dump result count " . $stm -> rowCount();    var_dump($result); // ######## 23/1/21 får forventet reslutatet for riktig og galt passord
     
     
     if($stm -> rowCount() == 1) { //skjekk innloggingsinformasjon mot databasen
-        
-        
         $fulltnavn = $result['fnavn']." ".$result['enavn'];
         $brukertype = $result['brukertype']; // #### 17.feb sprint 4 tar være på bruketype og justere innloggetMeny.php
         $_SESSION['navn'] = $fulltnavn;
         $_SESSION['innlogget'] = TRUE;
         $_SESSION['epost'] = $bruker;
         $_SESSION['brukertype'] = $brukertype; // #### Set i cookie
-        $_SESSION['kandidat'] = isKandidat();
+        $_SESSION['kandidat'] = isKandidat($bruker);
         $_SESSION['nomineringsperiode'] = isNominering();
         $_SESSION['valgperiode'] = isValg();
         // echo '<script>alert("Logginn vellykket");</script>';
@@ -84,7 +90,7 @@ if(isset($_POST["logginn"])) { // knapp trykket fra logginn siden
         // var_dump($kandidat);
         // echo "<br> res" . var_dump($res);
         // echo "brukertype:  $brukertype";
-        //header("Location: ../avstemning.php");
+        header("Location: ../avstemning.php");
         
     } else {
         // echo '<script>alert("Logginn mislykkes");</script>';
