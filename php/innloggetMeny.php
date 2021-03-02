@@ -19,7 +19,7 @@ function brukerMeny() {
 	<li id="home"><a href="default.php">Home</a></li>
 	<li><a href="byttpassord.php">Bytt passord</a></li>
 	MKR;
-	echo "<li>Kandiat is " . $GLOBALS['kandidat']. $GLOBALS['brukertype'] ."</li>";
+	// echo "<li>Kandiat is " . $GLOBALS['kandidat']. $GLOBALS['brukertype'] ."</li>";
 	if($GLOBALS['nomineringsperiode']) { echo "<li><a href=\"nominering.php\">Nominering</a></li>";	}
 	if($GLOBALS['valgperiode']) { echo "<li><a href=\"avstemning.php\">Avstemning</a></li>";}
 	if($GLOBALS['kandidat']) { echo "<li><a href=\"myprofile.php\">Kandidatur</a></li>";	}

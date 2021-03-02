@@ -17,7 +17,7 @@ include 'php/header.php';
 
 echo <<<MKR
 <main>
-<h2>$title</h2>
+<h1>$title</h1>
 <!--
 <label for="valgid">Valg ID: </label>
 <select name="valgid" id="valgid">
@@ -53,8 +53,8 @@ echo "<input type=\"button\" class=\"registerknapp1\" value=\"Nytt Valg\" onclic
 
 echo <<<MKR
 </select>
-<h3 class="valgform">Endre datoene</h3>
-<form name="valgdato" id="valgdato" action="php/valgdato.php" method="POST" enctype=”text/plain” class="valgform"> <!-- target for melding & js for dato-sjekk -->
+<h2 class="valgform">Endre datoene</h2>
+<form name="valgdato" id="valgdato" action="php/valgdato.php" method="POST" enctype=”text/plain” class="valgform" onsubmit="return sjekkDatoene();"> <!-- target for melding & js for dato-sjekk -->
     <label for="startforslag">Startdato for Nominering</label>
     <input type="datetime" name="startforslag" id="startforslag" placeholder="yyyy-mm-dd hh:mm:ss">
     <label for="sluttforslag">Sluttdato for Nominering</label>
@@ -66,7 +66,7 @@ echo <<<MKR
     <input type="submit" value="Endre" name="endre" class="registerknapp1">
 </form>
 
-<h3 class="valgform">Legg till Nytt Valg</h3>
+<h2 class="valgform">Legg till Nytt Valg</h2>
 <form name="nyvalg" id="nyvalgdato" action="php/valgdato.php" method="POST" enctype=”text/plain” class="valgform"> <!-- target for melding & js for dato-sjekk -->
     <label for="tittel">Tittel</label>
     <input type="text" name="tittel" id="tittel" placeholder="Valg tittel">

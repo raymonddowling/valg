@@ -2,6 +2,7 @@
 session_start();
 $innlogget = $_SESSION['innlogget'];
 $bruker = $_SESSION['epost'];
+$fulltnavn = $_SESSION['navn'];
 
 include 'php/dbconnect.php'; 
 $mydb = new mypdo();
@@ -11,31 +12,56 @@ if(!$mydb) {
 
 // $sql = "SELECT * FROM bruker LIMIT 1";
 // $d = $mydb->query($sql);
-$sql = "SELECT epost, enavn, fnavn, informasjon, bilde, trukket \n"
+$sql = "SELECT epost, informasjon, bilde, trukket \n"
 . "from bruker b INNER JOIN kandidat k \n"
 . "on b.epost = k.bruker \n"
 . "WHERE epost = :bruker";
-$stm = $mydb -> prepare($sql);
+$stm = $mydb -> prepare($sql); 
 $stm -> bindParam(":bruker", $bruker);
 $stm -> execute();
-$result = $stm -> fetch(PDO::FETCH_NUM);
+$result = $stm -> fetch(PDO::FETCH_ASSOC);
+$info = $result['informasjon'];
+$bildeid = $result['bilde'];
+$stm -> closeCursor();
 
 $title = "Mitt kandidatur";
 include 'php/header.php';
+
+echo "<main>";
+echo "<h2>$title</h2>";
+echo "<section>";
+echo "<h3>Rediger kadidaturinformasjon</h3>";
+
+If ($bildeid != 0) {
+    echo "Et bilde ligger i db";
+} else {
+    echo "Ingen bilde å vise <a href=\"#lastoppbilde\">Last opp ditt bilde</a>";
+}
+
 echo <<<MKR
-<main>
-<form action="php/lastopp_bilde.php" method="post" enctype="multipart/form-data">
-    <label for="profilbilde">Lastopp et profilbilde</label><br/>
-    <input type="file" name="profilbilde" ></input><br/>
+<form name="editprofile" action="php/profil_action.php" method="post">
+    <label for="navn">Navn</label>
+    <input type="text" name="navn" value="{$fulltnavn}" readonly>
+    <label for="informasjon">Rediger din informasjon</label>
+    <textarea name="informasjon" rows="5" cols="40" placeholder="Informasjon om ditt kandidatur">$info</textarea>
+    <label for="trukket">Alvslå ditt kandidatur</label>
+    <input type="checkbox" name="trukket">
+    <input type="submit" name="oppdaterkandidatur" value="Oppdater kadidatur" class="registerknapp1">
+</form>
+</section>
+
+<section>
+<h3>Lastopp Bilde</h3>
+<form name="lastoppbilde" id="lastoppbilde" action="php/lastopp_bilde.php" method="post" enctype="multipart/form-data">
+    <label for="profilbilde">Lastopp et profilbilde</label>
+    <input type="file" name="profilbilde">
     <input type="submit" value="last opp bilde" name="lastopp">
-    </form>
+</form>
+<section>
 </main>
 MKR;
 
-
-
 var_dump($result);
-
 
 include 'php/footer.php';
 ?>

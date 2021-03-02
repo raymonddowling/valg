@@ -24,7 +24,7 @@ function vismelding() {
     alert(meld);
 }
 
-function kopitr(radnr) {
+function kopitr(radnr) { //kopi valg data fra tabellen til form
     // hent verdier i raden 
     const rad = document.getElementsByClassName("rad".concat(radnr));
     let v = rad[0].innerHTML.replace(/\<td\>/g, "");
@@ -48,4 +48,20 @@ function visValgform(head, form) {
     const valgforms = document.getElementsByClassName("valgform");
     valgforms[head].style.display = "flex";
     valgforms[form].style.display = "flex";
+}
+
+function sjekkDatoene() { // sjekk nominasjons- og valgperiode er gylidige fra valg form
+    // datoene = new Array(4);
+    const f = document.forms["valagdato"];
+    for (i = 1; i < f.length; i++) {
+        // alert(f.querySelector("label[for=" + f.elements[i].id.textContent )
+        alert(f.elements[i].value);
+        /* if (f.elements[i].value < f.elements[i-1].value) {
+            var l1 = f.querySelector('label[for=' + f.elements[i].id + ']');
+            var l2 = f.querySelector('label[for=' + f.elements[i+1].id) + ']';
+            alert(l1.textContent + "må være etter" + l2.textContent);
+            return false;
+        } */
+    }
+    return false;
 }
