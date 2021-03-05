@@ -40,7 +40,7 @@ if(!$mydb) {
 </header>
 
 <main>
-<h2>Nominering</h2>
+<h1>Nominering</h1>
 
 <form name="nominering" action="php/legg_till_kandidat.php" method="post">
 

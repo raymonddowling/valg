@@ -15,7 +15,7 @@ $startvalg = $_POST['startvalg'];
 $sluttvalg = $_POST['sluttvalg'];
 
 if (isset($_POST['endre'])) {
-    echo 'Endre';
+    // echo 'Endre';
     $update = "UPDATE valg SET startforslag = :stf, sluttforslag = :slf, startvalg = :stv, sluttvalg = :slv";
     $stm = $mydb -> prepare($update);
     $stm -> bindParam(":stf", $startforslag, PDO::PARAM_STR);
@@ -24,7 +24,8 @@ if (isset($_POST['endre'])) {
     $stm -> bindParam(":slv", $sluttvalg, PDO::PARAM_STR);
     $stm -> execute();
     $stm -> closeCursor();
-    var_dump($sluttvalg);
+    // var_dump($sluttvalg);
+    echo "Endring vellykket <a href = \"../valgadmin.php\">Tilbake til forrige siden</a>";
 }
 
 if (isset($_POST['register'])) {

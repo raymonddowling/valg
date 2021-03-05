@@ -1,61 +1,25 @@
 <?php
 @session_start(['cookie_lifetime' => 86400,
 'read_and_close'  => true,]);
+// session_start();
+
+// <!-- siden utvikelt av Raymond Dowling sist endret 03.mars 2021 -->
+
 $innlogget = $_SESSION['innlogget']; //$_SESSION['innlogget'] = TRUE;
+$title = "Valg 2021";
+
+include 'php/header.php';
 ?>
-<!DOCTYPE html>
-<!-- siden utvikelt av Raymond Dowling sist endret 20.november 2020 -->
-
-<html lang="no">
-
-<head>
-<meta charset ="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Valgsystem</title>
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-<script src="js/hamburger.js"></script>
-</head>
-
-<body>
-
-<?php $innlogget = FALSE; ?>
-
-<header>
-<nav id="menu">
-    <?php
-        if($innlogget) {
-            include 'php/innloggetMeny.php';
-        } else {
-            include 'php/utloggetMeny.php';
-        }
-    ?>
-</nav>
-</header>
 
 <main>
-
-<?php
-     include 'php/dbconnect.php';
-    $mydb = new mypdo();
-
-    if(!$mydb) {
-        echo 'feil med forbindelse';
-    }
-?>
-
-
 <h2>Hvorfor skolevalg?</h2>
 <p>Her kan du <a href="logginn.html">logg inn</a> Hvis du ikke har en bruker kan du <a href="registering.html">registrere deg</a>
-	<img class="dtpics" id="choicepick" src="images/choiceindex.jpg" alt="ubesluttsom mann" height="400" width="400"> </p>
+<img class="dtpics" id="choicepick" src="images/choiceindex.jpg" alt="ubesluttsom mann" height="400" width="400"> </p>
 
 <h2>Hvorfor burde du stemme?</h2>
 <p>Skolevalgene gir gode perspektiv på hva unge mener er viktig og hva som er det rette parti for dem.
 Resultatene blir offentliggjort noen dager før Stortings- eller lokalvalget, og resultatet herfra kan ha påvirkning på både partiene og velgerne.
 Er du ikke gammel nok til å stemme i det vanlige valget, er dette derfor den beste måten å si hva du mener på.</p>
-
-
-
 
 <h2>Hvem skal du stemme på?</h2>
 <p>Kunnskap er et viktig grunnlag for å ta en avgjørelse. Og jo mer du vet om samfunnet rundt deg.
@@ -72,11 +36,6 @@ der vi kan registrere bruker, nominere canditater, ha avstemmninger på canditat
 Nettsiden skal også være mulig å bruke på datamaskin men skal fokuseres på mobil.</p>
 
 </main>
-
-<footer>
-	<h3>Kontakt oss</h3>
-	<p> Email: r-15@teams.usn.no <span class="copy">&copy; Gruppe R-15 2020</span></p>
-</footer>
-
-</body>
-</html>
+<?php
+include 'php/footer.php';
+?>

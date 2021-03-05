@@ -12,8 +12,18 @@ $valgperiode = $_SESSION['valgperiode'];
 
 function brukerMeny() {
 	// meny for innlogget vanligbruker og ekstra hvis brukeren er kandidat
+	/* $url = $_SERVER['REQUEST_URI'];
+	$siden = parse_url($url, PHP_URL_PATH);
+	echo "siden = " . $siden;
+	var_dump($siden);
+ 	if (str_contains($siden, 'default.php')) { ########### ERROR UNDEFINED FUNCTION ####################
+		$kobling = "#";		######### forsøk på å hindre Page-Refresh på default.php siden
+	} else {
+		$kobling = "default.php";
+	}
+  */
 	echo <<<MKR
-	<a href="default.php"> <img class="dtpics" src="images/election.png" alt="valgurne" height="100" width="130"> </a>
+	<a href="default.php""> <img class="dtpics" src="images/election.png" alt="valgurne" height="100" width="130"> </a>
 	<button id="hamburgermeny" onclick=toggleMenu()>MENY</button>
 	<ul id="menuitems">
 	<li id="home"><a href="default.php">Home</a></li>
@@ -34,6 +44,8 @@ brukerMeny();
 if ($brukertype == 2) {
 	adminMeny();
 }
+
+// echo "Active page is " . $_SERVER['REQUEST_URI'];
 
 echo "</ul> \n
 	<a href=\"php/loggut.php\" class=\"logginnBtn\">Logg ut  " .$GLOBALS['name']."</a>";

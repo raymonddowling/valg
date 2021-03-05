@@ -24,7 +24,7 @@ echo <<<MKR
 -->
 MKR;
 // $sql = "SELECT idvalg,start-forslag,slutt-forslag,start-valg,slutt-valg,tittel FROM valg";  // ########## PROBLEM WITH START- IN NAMES
-$sql = "SELECT tittel,startforslag,sluttforslag,startvalg,sluttvalg FROM valg";  // ########## Oppdatert DB-Modell ett ord
+$sql = "SELECT tittel,startforslag,sluttforslag,startvalg,sluttvalg FROM valg LIMIT 1";  // ########## Oppdatert DB-Modell ett ord #### Skal være kun et valg i tabellen
 // $sql = "SELECT * FROM valg";
 $stm = $mydb -> prepare($sql);
 $stm -> execute();
@@ -49,7 +49,7 @@ while ($radnr < $stm -> rowCount()) {
 // echo "<tr><td colspan=\"6\">";
 // echo "</td></tr>";
 echo "</table>";
-echo "<input type=\"button\" class=\"registerknapp1\" value=\"Nytt Valg\" onclick=\"visValgform(2,3);\">";
+// echo "<input type=\"button\" class=\"registerknapp1\" value=\"Nytt Valg\" onclick=\"visValgform(2,3);\">";  ######## kun 1 valg ########
 
 echo <<<MKR
 </select>

@@ -4,8 +4,8 @@ session_start();
 // $navn = $_SESSION['navn'];
 //  unset($_SESSION['nominated']);
 
-include 'dbconnect_Local.php';
-// include 'dbconnect.php';
+// include 'dbconnect_Local.php';
+include 'dbconnect.php';
 
 $mydb = new mypdo();
 if(!$mydb) {
