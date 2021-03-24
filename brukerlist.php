@@ -21,21 +21,47 @@ echo <<<MKR
 <main>
 <h1>Bruker List</h1>
 <h2>Brukerne som ikke er registret med USN domene</h2>
-<table>
-<tr>
-<th>Epost</th><th>Navn</th><th>Stemme</th>
-</tr>
+
+
+<div class="flextabell">
+<div class="flextabelltop">Epost Adresse</div>
+<div class="flextabelltop">Navn</div>
+<div class="flextabelltop">Total Stemmer</div>
+
 MKR;
 
 while ($resultat = $stm -> fetch(PDO::FETCH_ASSOC)) {
-    echo "<tr>";
-    echo "<td>".$resultat['epost']."</td> <td>".$resultat['navn']."</td> <td>".$resultat['stemme']."</td>";
-    echo "</tr>";
+    echo "<div class=\"epostadresse\">". $resultat['epost'] . "</div> <div class=\"navn\">". $resultat['navn']. "</div> <div class=\"stemme\"><span class = \"totalstemmer\">Total Stemmer: </span><strong>" . $resultat['stemme'] . "</strong></div>";
+    // echo "<div class=\"rowbreak\"><br/></div>";
 }
+echo "</div>"."</main>";
 
-echo <<<MKR
-</table>
+/* echo <<<MKR
+
+<div class="flextabell">
+    <div class="epostadresse">
+        epost adresse
+    </div>
+    <div class="navn">
+        navn
+    </div>
+    <div class="stemme">
+        stemme
+    </div>
+    <div class="rowbreak"> </div>
+    <div class="epostadresse">
+        Looooooooooong   epost adresse
+    </div>
+    <div class="navn">  
+        navn
+    </div>
+    <div class="stemme">
+        stemme <strong>-1</strong>  
+    </div>
+
+</div>
+
 </main>
-MKR;
+MKR; */
 
 include 'php/footer.php';

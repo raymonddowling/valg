@@ -56,7 +56,7 @@ ul#menuitems li a {
 
 body {
     background-color: white;
-   /* margin: 0;
+    /* margin: 0;
     padding: 0; */
 }
 
@@ -96,40 +96,80 @@ p#nominasjon {
     text-align: center;
 }
 
+/* ########## Flextabell ###############
+## Tabelldata som er responive #####
+## eks. brukerlist.php ############
+## vis data i kolloner på mobil og i rader med header på større skjermer ###
+###################################
+*/
 
+.flextabell {
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    row-gap: 5px;
+    width: 90%;
+}
+
+.flextabelltop { 
+    display: none;
+}
+
+/* .rowbreak { /* changed layout to col so class is for column break ???????
+    flex-basis: 100%;
+    width: 50px ;
+} */
+
+.stemme, .epostadresse, .navn {
+    flex-basis: 33%;
+    height: 20px;
+}
+.epostadresse {
+    background-color: #324A51;
+    color: white;
+}
+
+.stemme {
+    margin-bottom: 20px;
+}
+
+/*  .navn, .stemme {
+    flex-shrink: 3;
+}
+*/
 
 /* Nettbrett */
 @media only screen and (min-width: 768px) {
-
+    
     .dtpics {display: inline;}
-
+    
     #choicepick {
         float: right;
     }
-
+    
     nav {
         background-color: rgba(89, 158, 175, 1);
         grid-template-rows: 100px; /* auto; */
         grid-auto-flow: column;
     }
-
+    
     #hamburgermeny {
         display: none;
     }
-
+    
     .logginBtn {  /* ######### OMMITTED FROM ONE DRIVE ################# */
         grid-column-start: 3;
         /*color: yellow; NOT SHOWING YELLOW*/
         grid-row: 1;
     }
-
+    
     #menuitems {
         display: inline;
         grid-column: 2 / -4; /* / -3; */
         grid-row: 1;
         margin-top: 1.5em;
     }
-
+    
     ul#menuitems li + li {
         display: inline;
         margin-right: 1.667em;
@@ -137,17 +177,52 @@ p#nominasjon {
         text-align: center;
         font-size: 1.1em;
     }
-
+    
     #home {
         display:none;
     }
-
+    
     main {
         margin-top: 140px;
     }
+    
+    /* ########### FLEX TABLE CHANGE TO ROW LAYOUT ON BIGGER SCREEN ################### */
+    
+    .flextabell {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .flextabelltop {
+        display: flex;
+        background-color: #324A51;
+        color: white;
+        flex-basis: 33%;
+        font-weight: 600;
+    }
+    
+    .totalstemmer {
+        display: none;
+    }
+    
+    /*  .navn {
+        margin-left: auto;
+    } */
+    
+    .epostadresse {
+        background-color: initial;
+        color: initial;
+    }
+
+    /* 
+    .rowbreak {
+        flex-basis: 100%;
+        height: 20px;
+    } */
+    
 }
 
 /* Desktop */
 @media only screen and (min-width: 1024px) {
-
+    
 }
