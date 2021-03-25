@@ -138,6 +138,11 @@ p#nominasjon {
 }
 */
 
+.fremheve { /* legge vekt på når siden er annerleders pga forretningsregler  f.eks ikke redigere inof under valget */
+    background-color: yellow;
+    font-weight: 600;
+}
+
 /* Nettbrett */
 @media only screen and (min-width: 768px) {
     

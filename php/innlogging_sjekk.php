@@ -2,7 +2,7 @@
 session_start();
 //Siden utviklet av Raymond Dowling sist endret 27.feburar 2021
 // sjekk om logginn er admin
-//on valginfo
+//og valginfo
 include 'dbconnect.php';
 $mydb = new mypdo();
 if(!$mydb) {
@@ -90,7 +90,7 @@ if(isset($_POST["logginn"])) { // knapp trykket fra logginn siden
         // var_dump($kandidat);
         // echo "<br> res" . var_dump($res);
         // echo "brukertype:  $brukertype";
-        header("Location: ../avstemning.php");
+        header("Location: ../default.php");
         
     } else {
         // echo '<script>alert("Logginn mislykkes");</script>';

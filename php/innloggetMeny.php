@@ -40,10 +40,19 @@ function adminMeny() {
 	echo '<li><a href="valgadmin.php">Administere Valget SOPA</a></li>';
 }
 
+function kontrollerMeny() {
+	echo '<li><a href="brukerlist.php">Kontrollerer Epost domene</a></li>';
+
+}
+
 brukerMeny();
 if ($brukertype == 2) {
 	adminMeny();
 }
+if ($brukertype == 3) {
+	kontrollerMeny();
+}
+
 
 // echo "Active page is " . $_SERVER['REQUEST_URI'];
 

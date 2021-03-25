@@ -3,6 +3,15 @@ session_start();
 
 // siden utviklet av Raymond Dowling sist endret 20.january 2021
 $innlogget = $_SESSION['innlogget'];
+$nommineringsperiode = $_SESSION['nomineringsperiode'];
+
+if (!$innlogget || !$nommineringsperiode) {  // redirect to defalut if accessed via adressbar illeagly
+    echo "kom direkte";
+    // sleep(3);
+    header("location: default.php");
+    // header("refresh 3; url=default.php");
+    exit ("siden er ikke tilgjenlig nå");
+}
 
 include 'php/dbconnect.php'; //php/dbconnect.php  & dbconnect_local.php
 // include 'php/dbconnect_Local.php'; //php/dbconnect.php  & dbconnect_local.php
@@ -63,9 +72,9 @@ if(!$mydb) {
         // echo <<EOT
         ?>
 </select>
-        <input type="submit" name="nominated" value="Nominer" class="registerknapp"><br/>
-        <label for="kandidat_info">Oppgir informasjon om kadidatet (valgfritt)</label>
-        <textarea id="kandidat_info" name="kandidat_info" placeholder="Hvorfor nominier du denne person?" rows="5" cols="40"></textarea>
+<label for="kandidat_info">Oppgir informasjon om kadidatet (valgfritt)</label>
+<textarea id="kandidat_info" name="kandidat_info" placeholder="Hvorfor nominier du denne person?" rows="5" cols="40"></textarea>
+<button type="submit" name="nominated" class="registerknapp">Nominer</button>
         
 </form>
 

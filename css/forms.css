@@ -1,10 +1,5 @@
 /* siden utviklet av alle 16.oktober 2020 */
-
-form {
-  display: flex;
-  flex-direction: column;
-}
-
+/* 
 input[type=text], input[type=password], input[type=email], input[type=oldpassword], input[type=newpassword], input[type=repeatpassword] {
   width: 150px;
   padding: 15px;
@@ -33,18 +28,11 @@ input[type=file]  {
   border: none;
   cursor: pointer;
   width: 100px;
-}
+} */
 
-label [for="kandidat_info"] {
-  font-weight: 100;
-  font-size: x-small;
-}
-
-label {
-  font-weight: 600;
-}
 
 /* Tabell i valagadmin knyttet til form for å endre innhold */
+/* Change to flexbox som i brukerlist.php ???? (25/3) */
 table, td {
   border: black;
   border-collapse: collapse;
@@ -63,54 +51,91 @@ table {
 }
 
 /* table tr td a { lenke i tabllen skal ser ut som knapp */
-#nyttvalg { /* lenke i tabllen skal ser ut som knapp */
-  background-color: #6E5A7E;
-  color: white;
-  cursor: pointer;
-  /* border-radius: 10%;
-  width: 80%; */
-}
-
-.valgform {
-  display: none;
-  flex-direction: column;
-}
-
-.registerknapp1 {
-  background-color:#6E5A7E;
-  color: white;
-  padding: 15px 15px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: max-content;
-}
-
-.registerknapp1:focus {
-  text-transform: uppercase;
-  border: #599EAF solid 5px;
-}
-
-.valgform input[type="datetime"], .valgform input[type="text"] {
-  width: 150px;
-  padding: 15px;
-  margin: 10px 0 20px 0;
-  /* border: align; */
-  /* display: inline-block; */
-  background: #324A51;
-  color: white;
-}
-.valgform input[type="datetime"]:focus, .valgform input[type="text"]:focus {
-  background: #95B0B7;
-  color: #000;
-}
-
-/* Nettbrett & Desktop  utviklet av Raymond Dowling sist endret 20.november 2020*/
-/* Utnytt breden ved å dele skjeamet i kolonner 
-@media only screen and (min-width: 7768px) { 
-  form[name = reg_form] {column-count: 2;}
-  #email {
-      break-after: column;
+  #nyttvalg { /* lenke i tabllen skal ser ut som knapp */
+    background-color: #6E5A7E;
+    color: white;
+    cursor: pointer;
+    /* border-radius: 10%;
+    width: 80%; */
   }
-}
-*/
+  
+  /* .valgform input[type="datetime"], .valgform input[type="text"] {
+    width: 150px;
+    padding: 15px;
+    margin: 10px 0 20px 0;
+    /* border: align; */
+    /* display: inline-block; 
+    background: #324A51;
+    color: white;
+  }
+  .valgform input[type="datetime"]:focus, .valgform input[type="text"]:focus {
+    background: #95B0B7;
+    color: #000;
+  } */
+  
+  
+  /* 
+  ##############################################################################################
+  ########## Uniform Layout for forms ##############################
+  ########## Use Classy pallett from https://mycolor.space/?hex=%23599EAF&sub=1 ############
+  ######### Utviklet av Shia sist endret 25.mars 2021 ###################
+  ######### Utviklet av Raymond Dowling sist endret 25.mars 2021 ###################
+  ##############################################################################################
+  */
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label [for="kandidat_info"] {
+    font-weight: 100;
+    font-size: x-small;
+  }
+  
+  label {
+    font-weight: 600;
+  }
+  
+  .valgform {
+    display: none;
+    flex-direction: column;
+  }
+  
+  input {
+    width: 150px;
+    padding: 15px;
+    margin: 10px 0 20px 0;
+    background: #324A51;
+    color: white;
+  }
+  
+  input:focus {
+    background: #95B0B7;
+    color: #000;
+  }
+  
+  .registerknapp1, .registerknapp {
+    background-color:#6E5A7E;
+    color: white;
+    padding: 15px 15px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: max-content;
+  }
+  
+  .registerknapp1:focus, .registerknapp:focus {
+    text-transform: uppercase;
+    border: #599EAF solid 5px;
+  }
+  
+  /* Nettbrett & Desktop  utviklet av Raymond Dowling sist endret 20.november 2020*/
+  /* Utnytt breden ved å dele skjeamet i kolonner 
+  @media only screen and (min-width: 7768px) { 
+    form[name = reg_form] {column-count: 2;}
+    #email {
+      break-after: column;
+    }
+  }
+  */
