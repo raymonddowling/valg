@@ -3,6 +3,7 @@ session_start();
 
 // siden utvilklet av Raymond Dowling sist endret 25.mars 2021
 
+
 function redigerbar_forms($fulltnavn, $info, $trukket, $bildeid) {
     echo <<<MKR
     <form name="editprofile" action="php/profil_action.php" method="post">
@@ -68,7 +69,12 @@ $bruker = $_SESSION['epost'];
 $fulltnavn = $_SESSION['navn'];
 $valgperiode = $_SESSION['valgperiode'];
 
-// if valgperiode forhindre endringer  ???? 
+if(!$innlogget) {
+    
+    header("Location: default.php");
+    exit ("Tilgang ikke tillat");
+    
+}
 
 include 'php/dbconnect.php'; 
 $mydb = new mypdo();
@@ -120,6 +126,7 @@ if ($bildeid != 0) {
     echo "Ingen bilde å vise <a href=\"#lastoppbilde\">Last opp ditt bilde</a>";
 }
 
+// if valgperiode forhindre endringer
 if(!$valgperiode) {
     redigerbar_forms($fulltnavn, $info, $trukket, $bildeid);
 } else {
