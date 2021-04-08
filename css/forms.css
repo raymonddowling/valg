@@ -129,13 +129,27 @@ table {
     text-transform: uppercase;
     border: #599EAF solid 5px;
   }
+
+  select {
+    width: 200px;
+  }
+
+  textarea {
+    max-width: 90%;
+  }
   
   /* Nettbrett & Desktop  utviklet av Raymond Dowling sist endret 20.november 2020*/
-  /* Utnytt breden ved å dele skjeamet i kolonner 
-  @media only screen and (min-width: 7768px) { 
+  /* Utnytt breden ved å dele skjeamet i kolonner */
+  @media only screen and (min-width: 768px) { 
     form[name = reg_form] {column-count: 2;}
     #email {
       break-after: column;
     }
+    textarea {
+      max-width: 80%;
+    }
+    
   }
-  */
+  
+  @media only screen and (min-widt: 2768px) {
+  }

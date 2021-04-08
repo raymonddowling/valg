@@ -23,7 +23,7 @@ if(!$mydb) {
 <!DOCTYPE html>
 <!-- Denne siden er utviklet av Serhat Bawer Guzel sist endret 16.oktober 2020-->
 
-<html lang="no">l
+<html lang="no">
 
 <head>
 <meta charset="UTF-8">
@@ -53,7 +53,7 @@ if(!$mydb) {
 
 <form name="nominering" action="php/legg_till_kandidat.php" method="post">
 
-<label>Velg Personene du vil nominere: </label>
+<label>Velg Personen du vil nominere: </label>
 <select class="groupnr" name="groupnr" required autofocus>
     <?php
         // echo "<p>e-post til brukeren: $name</p>";
@@ -73,7 +73,7 @@ if(!$mydb) {
         ?>
 </select>
 <label for="kandidat_info">Oppgir informasjon om kadidatet (valgfritt)</label>
-<textarea id="kandidat_info" name="kandidat_info" placeholder="Hvorfor nominier du denne person?" rows="5" cols="40"></textarea>
+<textarea id="kandidat_info" name="kandidat_info" placeholder="Hvorfor nominier du denne person?" rows="5" cols="20"></textarea>
 <button type="submit" name="nominated" class="registerknapp">Nominer</button>
         
 </form>

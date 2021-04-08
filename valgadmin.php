@@ -10,7 +10,7 @@ $mydb = new mypdo();
 if(!$mydb) {
     exit("feil med forbindelse");
 }
-
+// $visMeny = true;
 $title = "Valg Adminstrasjon";
 include 'php/header.php';
 
@@ -63,7 +63,7 @@ echo <<<MKR
     <input type="datetime" name="startvalg" id="startvalg" placeholder="yyyy-mm-dd hh:mm:ss">
     <label for="sluttvalg">Sluttdato for Valg</label>
     <input type="datetime" name="sluttvalg" id="sluttvalg" placeholder="yyyy-mm-dd hh:mm:ss">
-    <input type="submit" value="Endre" name="endre" class="registerknapp1">
+    <button type="submit" value="Endre" name="endre" class="registerknapp1">Endre</button>
 </form>
 
 <h2 class="valgform">Legg till Nytt Valg</h2>

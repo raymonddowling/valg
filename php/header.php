@@ -29,10 +29,10 @@ MKR;
         } else {
             include 'php/utloggetMeny.php';
         }
-    // 
+
 echo <<<MKR
 	</nav>
 </header>
 MKR;
 ?>
-<!-- Så starter med <main> her! -->
+

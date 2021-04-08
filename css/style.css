@@ -96,6 +96,14 @@ p#nominasjon {
     text-align: center;
 }
 
+p.phpmelding { /* php meldinger på skript sider under php-mappa */
+    background-color: yellow;
+    font-weight:  600;
+    text-transform: uppercase;
+    text-align: center;
+    margin: auto auto;
+}
+
 /* ########## Flextabell ###############
 ## Tabelldata som er responive #####
 ## eks. brukerlist.php ############

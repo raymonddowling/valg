@@ -9,6 +9,9 @@ if (!$mydb) {
     exit("feil med forbindelse");
 }
 
+
+// include 'header_utenMeny.php';
+
 $startforslag = $_POST['startforslag'];
 $sluttforslag = $_POST['sluttforslag'];
 $startvalg = $_POST['startvalg'];
@@ -25,7 +28,7 @@ if (isset($_POST['endre'])) {
     $stm -> execute();
     $stm -> closeCursor();
     // var_dump($sluttvalg);
-    echo "Endring vellykket <a href = \"../valgadmin.php\">Tilbake til forrige siden</a>";
+    echo "<p id=\"phpmelding\">Endring vellykket <a href = \"../valgadmin.php\">Tilbake til forrige siden</a></p>";
 }
 
 if (isset($_POST['register'])) {
@@ -42,4 +45,5 @@ if (isset($_POST['register'])) {
     $stm -> closeCursor();
 }
 
+include 'footer.php';
 ?>
