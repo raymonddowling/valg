@@ -59,7 +59,12 @@ function isGyldigPeriode($sql) {
 
 }
 
-if(isset($_POST["logginn"])) { // knapp trykket fra logginn siden
+if(isset($_GET["reg"])) {
+    $nettop_registert = TRUE;
+
+}
+
+if(isset($_POST["logginn"]) || $nettop_registert) { // knapp trykket fra logginn siden eller registert
     // echo "logginn knappen trykket ";
     $salt = "IT2_2021";
     $passord = $_POST["password"];

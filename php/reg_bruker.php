@@ -21,8 +21,7 @@ session_start();
 
 <?php
  */
-// include 'dbconnect_Local.php'; //########### TEST LOCAL ####################
-include 'dbconnect.php'; //########### TEST FELLESDB ####################
+include 'dbconnect.php'; 
 $mydb = new mypdo();
 
 if(!$mydb) { 
@@ -55,14 +54,18 @@ if (isset($_POST['register'])) {
 
     $lykkes = $stmt->execute();
 
-    var_dump($lykkes);
+    // var_dump($lykkes);
 
 }
 if($lykkes) {
     echo "<script>alert(\"Registering vellykket\")</script>";
-    $_SESSION['navn'] = $epost;
+   /*  $_SESSION['navn'] = $epost;
     $_SESSION['innlogget'] = TRUE;
+    $_SESSION['bruketype'] = $brukertype;
+    $_SESSION[''] */
    // header("Location: ../avstemning.php?".SID);
+   
+   header("Location: ../logginn.html"); //send til logginn sida for å få dynamisk meny
 } else {
     echo "<br/>Reg mislykket";
     echo "<script>alert(\"Registering mislykket\")</script>";

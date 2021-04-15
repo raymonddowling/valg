@@ -3,6 +3,11 @@ session_start();
 
 // siden utviklet av Raymond Dowling sist endret 18.feburar 2021
 $innlogget = $_SESSION['innlogget'];
+$brukertype = $_SESSION['brukertype'];
+
+if(!$innlogget || $brukertype != 2) { // hvis brukeren er ikke innlogget som admin
+    header("Location: default.php"); // send til hjem.
+}
 
 // ###### koble til databasen ###########
 include 'php/dbconnect.php';

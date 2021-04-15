@@ -1,5 +1,11 @@
 <?php
 session_start();
+$innlogget = $_SESSION['innlogget'];
+$brukertype = $_SESSION['brukertype'];
+
+if(!$innlogget || $brukertype != 3) { // hvis brukeren er ikke innlogget som kontrollør
+    header("Location: default.php"); // send til hjem.
+}
 
 include 'php/dbconnect.php';
 $mydb = new myPDO();
