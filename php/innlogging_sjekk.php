@@ -13,7 +13,8 @@ function isKandidat($epost) {
     echo "Call isKandidat";
     // ###### sjekk om bruker er kandidat ############
     $sql1 = "SELECT bruker FROM kandidat WHERE bruker = :bruker"; //AND avslått FALSE
-    $stm1 = $GLOBALS['mydb'] -> prepare($sql1);
+    $stm1 = $GLOBALS['mydb'] -> prepare($sql1);  //##Doubl check GLOBALS
+    //$stm1 = $mydb -> prepare($sql1);
     $stm1 -> bindParam(":bruker", $epost);
     $stm1 -> execute();
     $res = $stm1 -> fetch(PDO::FETCH_ASSOC);
