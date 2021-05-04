@@ -51,25 +51,30 @@ function isGyldigPeriode($sql) {
     // echo $periode_start . "\t  Start\n";
     // echo $periode_slutt . "\t  slutt\n";
     // echo "idag minus start ". ($idag - $periode_start);
-
+    
     if ($idag >= $periode_start && $idag <= $periode_slutt) {
         return TRUE;
     } else {
         return FALSE;
     }
-
+    
 }
 
-if(isset($_GET["reg"])) {
-    $nettop_registert = TRUE;
-
+if(isset($_GET["reg"])) { // La brukere logge seg inn etter registering
+    // $nettop_registert = TRUE;
+    // var_dump($_GET);
+    $passord = $_GET["pord"];
+    $bruker = $_GET["epost"];
 }
 
-if(isset($_POST["logginn"]) || $nettop_registert) { // knapp trykket fra logginn siden eller registert
+if(isset($_POST["logginn"])) {
     // echo "logginn knappen trykket ";
-    $salt = "IT2_2021";
-    $passord = $_POST["password"];
+    $passord = $_POST["password"]; 
     $bruker = $_POST["username"];
+}
+
+if(isset($_POST["logginn"]) || isset($_GET["reg"])) { // knapp trykket fra logginn siden eller registert
+    $salt = "IT2_2021";
     $ps = sha1($salt.$passord);
     $sql = "SELECT * FROM bruker WHERE epost = :bruker AND passord = :ps";
     $trygg ="SELECT COUNT(*) FROM bruker WHERE epost = :bruker AND passord = :ps";
@@ -95,19 +100,30 @@ if(isset($_POST["logginn"]) || $nettop_registert) { // knapp trykket fra logginn
         // echo '<script>window.location.assign("../avsteming.php"</script>';
         // var_dump($kandidat);
         // echo "<br> res" . var_dump($res);
-        // echo "brukertype:  $brukertype";
-        header("Location: ../default.php");
-        
+        echo "brukertype:  $brukertype";
+        switch ($brukertype) {
+            case 2: //brukertype 2 == admmin
+                header("Location: ../valgadmin.php");
+                break;
+            case 3: //brukertype 3 == kontoller
+                header("Location: ../brukerlist.php");
+                break;
+            default:
+                header("Location: ../default.php");
+            }
     } else {
         // echo '<script>alert("Logginn mislykkes");</script>';
-        header("Location: ../logginn.html"); //mislykket logginn
+        echo "Problem med rowcount???";
+        //header("Location: ../logginn.html"); //mislykket logginn
         // echo "logginn mislykkes";
     }
     
 } else {
     // echo '<script>alert("Logginn mislykkes");</script>';
-    header("Location: ../logginn.html"); //skrevet siden i url
+    echo "problem comming directly";
+    //header("Location: ../logginn.html"); //skrevet siden i url
 }
 
-
-?>
+        
+        ?>
+        

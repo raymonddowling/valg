@@ -98,7 +98,7 @@ table {
   }
   
   .valgform {
-    display: none;
+    /* display: none; */
     flex-direction: column;
   }
   
@@ -151,5 +151,5 @@ table {
     
   }
   
-  @media only screen and (min-widt: 2768px) {
+  @media only screen and (min-width: 2768px) {
   }

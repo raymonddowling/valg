@@ -3,9 +3,9 @@
 
 // sjekk at passord er rigtig skrevet 
 function passordsjekk() {
-    const p1 = document.getElementById("passord1").value;
+    const p1 = document.getElementById("password").value;
     const p2 = document.getElementById("passord2").value;
-    const p1felt = document.getElementById("passord1");
+    const p1felt = document.getElementById("password");
 
     if (p1 != p2) {
         alert("passord matcher ikke!");
@@ -57,11 +57,11 @@ function sjekkDatoene() { // sjekk nominasjons- og valgperiode er gylidige fra v
     for (i = 1; i < f.length -1; i++) {
         // alert(f.querySelector("label[for=" + f.elements[i].id.textContent )
         // alert(f.elements[i].value);
-        console.log(f.elements[i].value);
+        // console.log(f.elements[i].value);
         if (f.elements[i].value < f.elements[i-1].value) {
-            var l1 = f.querySelector('label[for=' + f.elements[i].id + ']');
-            var l2 = f.querySelector('label[for=' + f.elements[i-1].id + ']');
-            alert(l1.textContent + " må være etter " + l2.textContent);
+            // var l1 = f.querySelector('label[for=' + f.elements[i].id + ']');
+            // var l2 = f.querySelector('label[for=' + f.elements[i-1].id + ']');
+            alert("Sjekk datoene!\nStartdatoene må vare før Sluttdatoene\nOg Nomineringsperioden må være avlusttet før Valgperionden starter");
             return false;
         }
     }

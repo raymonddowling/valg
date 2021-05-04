@@ -42,7 +42,8 @@ function showMenuitems() {
 }
 
 function menuLight() {
-    document.getElementById("menu").style.backgroundColor = "rgba(89, 158, 175, 0.75)";
+    // document.getElementById("menu").style.backgroundColor = "rgba(89, 158, 175, 0.75)";
+    document.getElementById("menu").style.backgroundColor = "rgba(89, 158, 175, 1)";
     // document.getElementById("menuitems").style.height = "100vh";
 
     document.getElementById("menuitems").style.width = "auto";

@@ -30,10 +30,10 @@ if(!$mydb) {
 
 if (isset($_POST['register'])) {
     echo "button pressed <br/>";
-    var_dump($_POST);
+    //var_dump($_POST);
 
     $epost = $_POST["email"];
-    $pord = $_POST["passord1"];
+    $pord = $_POST["password"];
     $enavn = $_POST["etternavn"];
     $fnavn = $_POST["fornavn"];
     $brukertype = 1;
@@ -54,7 +54,7 @@ if (isset($_POST['register'])) {
 
     $lykkes = $stmt->execute();
 
-    // var_dump($lykkes);
+    var_dump($lykkes);
 
 }
 if($lykkes) {
@@ -65,10 +65,12 @@ if($lykkes) {
     $_SESSION[''] */
    // header("Location: ../avstemning.php?".SID);
    
-   header("Location: ../logginn.html"); //send til logginn sida for å få dynamisk meny
+//    header("Location: ../logginn.html"); //send til logginn sida for å få dynamisk meny
+    header("Location: innlogging_sjekk.php?reg=1&pord=".$pord."&epost=".$epost); //prøv innlogginsjekk fo å sette opp meny
 } else {
     echo "<br/>Reg mislykket";
     echo "<script>alert(\"Registering mislykket\")</script>";
+    echo "Gå til <a href=\"../default.php\">hjemme-siden</a>";
     // header("Location: ../index.html");
 } 
 ?>

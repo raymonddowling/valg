@@ -3,6 +3,7 @@
 Siden utviklet av Raymond Dowling sist endret 18.feburar 2021
 HTML code som er på starten av hver side fra HTML til MAIN
 sides title må settes i $title var på siden denne filen er inkludert i 
+$innlogget må settes til $_SESSION[innlogget]
  */
 
 echo <<<MKR
@@ -22,10 +23,8 @@ echo <<<MKR
 <header>
 	<nav id="menu">
 MKR;
-    // <?php
         if($innlogget) {
             include 'php/innloggetMeny.php';
-            // include 'innloggetMeny.php';
         } else {
             include 'php/utloggetMeny.php';
         }
