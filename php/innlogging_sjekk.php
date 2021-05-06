@@ -113,8 +113,9 @@ if(isset($_POST["logginn"]) || isset($_GET["reg"])) { // knapp trykket fra loggi
             }
     } else {
         // echo '<script>alert("Logginn mislykkes");</script>';
-        echo "Problem med rowcount???";
-        //header("Location: ../logginn.html"); //mislykket logginn
+        // echo "Problem med rowcount???";
+        setcookie("logginnFeil", "Logginn forsøk mislykket", time()+3, "/");
+        header("Location: ../logginn.html"); //mislykket logginn
         // echo "logginn mislykkes";
     }
     
@@ -126,4 +127,4 @@ if(isset($_POST["logginn"]) || isset($_GET["reg"])) { // knapp trykket fra loggi
 
         
         ?>
-        
+    

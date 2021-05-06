@@ -1,6 +1,13 @@
 <?php
 session_start();
 
+/* 
+######## siden utviklet av Raymond Dowling ##########
+######## sist endtret 6.mai 2021 ####################
+
+ */
+
+
 // $navn = $_SESSION['navn'];
 //  unset($_SESSION['nominated']);
 
@@ -62,7 +69,7 @@ if(isset ($_POST['nominated'])) {
         echo $insert."<br>";
         echo "insert Row Count  = " . $ps -> rowCount();
         
-        setcookie('nominated', "nominasjonen er registreret", time()+10, '/' );
+        setcookie('nominated', "nominasjonen er registreret", time()+3, '/' );
         header("location: ../nominering.php" . SID); //?$reg=true");
 
         

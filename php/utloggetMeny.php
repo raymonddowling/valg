@@ -4,7 +4,7 @@
 
 echo <<<MKR
 <a href="default.php"> <img class="dtpics" src="images/election.png" alt="valgurne" height="100" width="130"> </a>
-<a href="logginn.html" class="logginnBtn">Logg inn</a>
+<a href="logginn.php" class="logginnBtn">Logg inn</a>
 <button id="hamburgermeny" onclick=toggleMenu()>MENY</button>
     <ul id="menuitems">
 		<li id="home"><a href="default.php">Home</a></li>
