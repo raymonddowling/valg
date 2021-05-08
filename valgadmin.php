@@ -52,7 +52,10 @@ while ($radnr < $stm -> rowCount()) {
 // echo "</td></tr>";
 //echo "</table>";
 // echo "<input type=\"button\" class=\"registerknapp1\" value=\"Nytt Valg\" onclick=\"visValgform(2,3);\">";  ######## kun 1 valg ########
-
+if(isset($_COOKIE['endretdato'])) {
+    echo "<p class=\"phpmelding\">" .$_COOKIE['endretdato']."</p>";
+    header("refresh: 5");
+}
 echo <<<MKR
 </select>
 <h2 class="valgform">Endre datoene</h2>

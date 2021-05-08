@@ -1,8 +1,13 @@
 <?php 
 session_start();
-//Siden utviklet av Raymond Dowling sist endret 27.feburar 2021
+/* 
+#### Siden utviklet av Raymond Dowling ###########
+#### Sist endret 27.feburar 2021 ################
+ */
+
 // sjekk om logginn er admin
 //og valginfo
+
 include 'dbconnect.php';
 $mydb = new mypdo();
 if(!$mydb) {
@@ -114,8 +119,8 @@ if(isset($_POST["logginn"]) || isset($_GET["reg"])) { // knapp trykket fra loggi
     } else {
         // echo '<script>alert("Logginn mislykkes");</script>';
         // echo "Problem med rowcount???";
-        setcookie("logginnFeil", "Logginn forsøk mislykket", time()+3, "/");
-        header("Location: ../logginn.html"); //mislykket logginn
+        setcookie("logginnFeil", "Mislykket pålogging", time()+3, "/");
+        header("Location: ../logginn.php"); //mislykket logginn
         // echo "logginn mislykkes";
     }
     

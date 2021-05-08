@@ -81,7 +81,7 @@ if(!$mydb) {
 <?php
     if (isset($_COOKIE['nominated'])) {
         echo "<p id='nominasjon'> " . $_COOKIE['nominated'] . "</p>" ;
-        header("refresh: 4");
+        header("refresh: 5");
 // print_r($_COOKIE);>
     }
     ?>
