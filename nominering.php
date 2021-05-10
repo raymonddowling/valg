@@ -13,8 +13,7 @@ if (!$innlogget || !$nommineringsperiode) {  // redirect to defalut if accessed 
     exit ("siden er ikke tilgjenlig nå");
 }
 
-include 'php/dbconnect.php'; //php/dbconnect.php  & dbconnect_local.php
-// include 'php/dbconnect_Local.php'; //php/dbconnect.php  & dbconnect_local.php
+include 'php/dbconnect.php'; 
 $mydb = new mypdo();
 if(!$mydb) {
     exit("feil med forbindelse");

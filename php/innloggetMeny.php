@@ -37,7 +37,7 @@ function brukerMeny() {
 
 function adminMeny() {
 	echo '<li><a href="valgadmin.php">Administere Valget</a></li>';
-	echo '<li><a href="valgadmin.php">Administere Valget SOPA</a></li>';
+	echo '<li><a href="adminpermission.php">Administere Roller</a></li>';
 }
 
 function kontrollerMeny() {
