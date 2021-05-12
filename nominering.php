@@ -2,14 +2,13 @@
 session_start();
 
 // siden utviklet av Raymond Dowling sist endret 20.january 2021
+// siden utviklet av Raymond Dowling sist endret 12.mai 2021
+
 $innlogget = $_SESSION['innlogget'];
 $nommineringsperiode = $_SESSION['nomineringsperiode'];
 
 if (!$innlogget || !$nommineringsperiode) {  // redirect to defalut if accessed via adressbar illeagly
-    echo "kom direkte";
-    // sleep(3);
     header("location: default.php");
-    // header("refresh 3; url=default.php");
     exit ("siden er ikke tilgjenlig nå");
 }
 

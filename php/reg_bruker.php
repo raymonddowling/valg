@@ -1,26 +1,6 @@
 <?php
 session_start();
-/* 
-?>
 
-<!DOCTYPE html>
-<!-- siden utvikelt av Raymond Dowling sist endret 09.desember 2020 -->
-
-<html lang="no">
-
-<head>
-<meta charset ="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Valgsystem</title>
-<link href="../css/style.css" rel="stylesheet" type="text/css" />
-<script src="../js/hamburger.js"></script>
-</head>
-
-<body>
-
-<?php
- */
 include 'dbconnect.php'; 
 $mydb = new mypdo();
 
@@ -29,9 +9,6 @@ if(!$mydb) {
 }
 
 if (isset($_POST['register'])) {
-    echo "button pressed <br/>";
-    //var_dump($_POST);
-
     $epost = $_POST["email"];
     $pord = $_POST["password"];
     $enavn = $_POST["etternavn"];
@@ -44,7 +21,6 @@ if (isset($_POST['register'])) {
 
     // prepare statement
     $stmt = $mydb->prepare('INSERT INTO bruker (epost, passord, enavn, fnavn, brukertype) VALUES (?, ?, ?,?, ?)');
-    // $stmt->bind_param($epost, $passord, $enavn, $fnavn, 1);
     // bind paramaters
     $stmt->bindParam(1, $epost, PDO::PARAM_STR);
     $stmt->bindParam(2, $passord, PDO::PARAM_STR);
@@ -54,30 +30,14 @@ if (isset($_POST['register'])) {
 
     $lykkes = $stmt->execute();
 
-    var_dump($lykkes);
-
 }
 if($lykkes) {
-    echo "<script>alert(\"Registering vellykket\")</script>";
-   /*  $_SESSION['navn'] = $epost;
-    $_SESSION['innlogget'] = TRUE;
-    $_SESSION['bruketype'] = $brukertype;
-    $_SESSION[''] */
-   // header("Location: ../avstemning.php?".SID);
-   
-//    header("Location: ../logginn.html"); //send til logginn sida for å få dynamisk meny
+    // echo "<script>alert(\"Registering vellykket\")</script>";
+    setcookie("regmislykket", "Registering vellykket", time()+3, "/");
     header("Location: innlogging_sjekk.php?reg=1&pord=".$pord."&epost=".$epost); //prøv innlogginsjekk fo å sette opp meny
 } else {
-    echo "<br/>Reg mislykket";
-    echo "<script>alert(\"Registering mislykket\")</script>";
-    echo "Gå til <a href=\"../default.php\">hjemme-siden</a>";
-    // header("Location: ../index.html");
+    setcookie("regmislykket", "Det oppstår feil med registering\nVennligst prøv igjen senere", time()+3, "/");
+    header("Location: ../default.php");
 } 
+
 ?>
-
-<!-- </main>
-
-</body>
-
-</html>
- -->

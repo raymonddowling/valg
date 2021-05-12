@@ -16,34 +16,29 @@ include 'php/header.php';
 $sql = "SELECT epost, CONCAT(enavn, \" \" , fnavn) AS fultnavn FROM bruker WHERE brukertype = 1 ORDER BY enavn";
 $stm = $mydb -> prepare($sql);
 $stm -> execute();
-// $result = $stm -> fetchAll();
-// <form name = "permission" action = "php/Grantpermission.php" method = "post" >
 
 echo <<<MKR
 <main>
 <h1>$title</h1>
-<form name = "permission" action = "php/Grantpermission.php" method = "post">
+<form name = "permission" action = "php/grantpermission.php" method = "post">
 <label for="bruker"> Velg bruker </label> 
 <select name="bruker">
 MKR;
 while($row =  $stm -> fetch(PDO::FETCH_ASSOC)) {
-    // echo "<p>Text</p>";
-    // var_dump($row);
     $lineje = "<option value = " . $row['epost'].">" . $row['fultnavn']."</option>"; // #### BRUK STRING VAR ####
-    //    $lineje = ("<h1>" . $row['fultnavn'] ."</h1>");
     echo $lineje;
 }
 echo <<<MKR
-        </select>
-        <label for="rolle"> Velg rolle </label>
-        <select name = "rolle">
-        <option value = "2"> Admin </option>
-        <option value = "3"> Kontrollør </option>
-        </select>
+</select>
+<label for="rolle"> Velg rolle </label>
+<select name = "rolle">
+    <option value = "2"> Admin </option>
+    <option value = "3"> Kontrollør </option>
+</select>
  
-    <button type="submit" class="registerknapp"> Endre Rollen </button>
-    </form>
-    </main>
+<button type="submit" class="registerknapp"> Endre Rollen </button>
+</form>
+</main>
 MKR;
 
 include 'php/footer.php';

@@ -15,13 +15,7 @@ if(!$mydb) {
 }
 
 $bildenr = $_POST['bildeid'];
-/* 
-echo "Post " . var_dump($_POST) . "<br>";
-echo "<br><br>";
-echo "Files " . var_dump($_FILES) . "<br>";
- */
-if ($_FILES['profilbilde']['error'] == 0) {
-    // echo "no error ";
+if ($_FILES['profilbilde']['error'] == 0) { //ingen error med opplasting
     $bildenavn = str_replace(["@", "."], "_",$epost); //Erstatter @ og . fra epost address med underscore
     $bildenavn .= ".jpg";
     move_uploaded_file($_FILES['profilbilde']['tmp_name'], "../profilbilder/$bildenavn");
@@ -38,18 +32,20 @@ if ($_FILES['profilbilde']['error'] == 0) {
         $lstid = $mydb -> lastInsertId(); //bruk i kandidat
         $update = "UPDATE kandidat SET bilde = $lstid WHERE bruker = \"$epost\"";
         $ok2 = $mydb -> query($update);
-        var_dump($update);
-
-        var_dump($ok1);
-        var_dump($ok2);
+        
         if(!$ok1 || !$ok2) {
-            echo "Feil vennligst <a href= \"../myprofile.php\">prøve igjen</a>";
+            setcookie("bildeopplasting", "Feil med opplasting \nvennligst prøv igjen", time()+3, "/");
+            // echo "Feil vennligst <a href= \"../myprofile.php\">prøve igjen</a>";
         } else {
-            echo "Bilet er lastetopp - gå til <a href=\"../myprofile.php\">forrige siden</a>";
+            setcookie("bildeopplasting", "Bildeopplasting vellykket", time()+3, "/");
+            // echo "Bilet er lastetopp - gå til <a href=\"../myprofile.php\">forrige siden</a>";
         }
     }     //else {        //update         $id = (int)$bildenr;     } ### Kun ett bilde er lov så kan bruke sammen navn, tekst og bilde id
     
-    echo "Bilet er lastetopp - gå til <a href=\"../myprofile.php\">forrige siden</a>";
+    // echo "Bilet er lastetopp - gå til <a href=\"../myprofile.php\">forrige siden</a>";
+    header("Location: ../myprofile.php");
+} else {
+    setcookie("bildeopplasting", "Ingen bilde valgt", time()+3, "/");
+    header("Location: ../myprofile.php");
 }
-
 ?>

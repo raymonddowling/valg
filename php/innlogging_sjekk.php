@@ -101,11 +101,8 @@ if(isset($_POST["logginn"]) || isset($_GET["reg"])) { // knapp trykket fra loggi
         $_SESSION['kandidat'] = isKandidat($bruker);
         $_SESSION['nomineringsperiode'] = isNominering();
         $_SESSION['valgperiode'] = isValg();
-        // echo '<script>alert("Logginn vellykket");</script>';
-        // echo '<script>window.location.assign("../avsteming.php"</script>';
-        // var_dump($kandidat);
-        // echo "<br> res" . var_dump($res);
-        echo "brukertype:  $brukertype";
+        
+        if($_SESSION['kandidat'] && $_SESSION['nomineringsperiode']) $brukertype = 99;
         switch ($brukertype) {
             case 2: //brukertype 2 == admmin
                 header("Location: ../valgadmin.php");
@@ -113,6 +110,8 @@ if(isset($_POST["logginn"]) || isset($_GET["reg"])) { // knapp trykket fra loggi
             case 3: //brukertype 3 == kontoller
                 header("Location: ../brukerlist.php");
                 break;
+            case 99: //dummy for å sende til kandidat-profile siden under nominasjonsperioden
+                header("Location: ../myprofile.php");
             default:
                 header("Location: ../default.php");
             }

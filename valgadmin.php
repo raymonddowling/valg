@@ -23,39 +23,20 @@ include 'php/header.php';
 echo <<<MKR
 <main>
 <h1>$title</h1>
-<!--
-<label for="valgid">Valg ID: </label>
-<select name="valgid" id="valgid">
--->
 MKR;
+
+if(isset($_COOKIE['endretdato'])) {
+    $msg = $_COOKIE['endretdato'];
+    echo "<script>alert(\"$msg\");</script>";
+    // echo "<p class=\"phpmelding\">" .$_COOKIE['endretdato']."</p>";
+    // header("refresh: 5");
+}
+
 $sql = "SELECT tittel,startforslag,sluttforslag,startvalg,sluttvalg FROM valg LIMIT 1";  // ########## Oppdatert DB-Modell ett ord #### Skal være kun et valg i tabellen
 $stm = $mydb -> prepare($sql);
 $stm -> execute();
 $result = $stm -> fetch(PDO::FETCH_ASSOC);
-//$result = $stm -> fetchAll(); // ####### LIMIT TRAFFIC - HAVE MINIMAL RESULTS FOR TABLE ############
-/* echo "<table> //######### FJERN TABEL #######################
-    <tr>
-    <th>Tittel</th><th>Start forslag</th><th>Slutt forslag</th><th>Start Valg</th><th>Slutt Valg</th>
-    </tr>";
-$radnr = 0;
-while ($radnr < $stm -> rowCount()) {
-    $tr = "<tr>";
-    for ($col = 0; $col < 5; $col++) {
-        $tr .= "<td>".$result[$radnr][$col]."</td>";
-    }
-    // $tr .= "<td><input type=\"radio\" name=\"choice\" id=$radnr onclick=\"kopitr(id);\"></td>";
-    $tr .= "</tr>";
-    echo $tr;
-    $radnr ++;
-} */
-// echo "<tr><td colspan=\"6\">";
-// echo "</td></tr>";
-//echo "</table>";
-// echo "<input type=\"button\" class=\"registerknapp1\" value=\"Nytt Valg\" onclick=\"visValgform(2,3);\">";  ######## kun 1 valg ########
-if(isset($_COOKIE['endretdato'])) {
-    echo "<p class=\"phpmelding\">" .$_COOKIE['endretdato']."</p>";
-    header("refresh: 5");
-}
+
 echo <<<MKR
 </select>
 <h2 class="valgform">Endre datoene</h2>

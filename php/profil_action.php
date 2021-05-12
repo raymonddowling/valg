@@ -1,6 +1,5 @@
 <?php
 session_start();
-// var_dump($_POST);
 
 include 'dbconnect.php';
 $mydb = new myPDO();
@@ -12,16 +11,21 @@ $bruker = $_SESSION['epost'];
 $info = $_POST['informasjon'];
 $trukket = $_POST['trukket'];
 
-$sql = "UPDATE kandidat SET informasjon = :info, trukket = :trukket \n"
+if(isset($_POST['oppdaterkandidatur'])) {
+
+    $sql = "UPDATE kandidat SET informasjon = :info, trukket = :trukket \n"
     . "WHERE bruker = :bruker";
-$stm = $mydb -> prepare($sql);
-$stm -> bindParam(":info", $info);
-$stm -> bindParam(":trukket", $trukket);
-$stm -> bindParam(":bruker", $bruker);
-if($stm -> execute()) {
-    echo "Informasjon oppdatert";
-} else {
-    echo "Feil med oppdatering vennligst prøv igjen";
+    $stm = $mydb -> prepare($sql);
+    $stm -> bindParam(":info", $info);
+    $stm -> bindParam(":trukket", $trukket);
+    $stm -> bindParam(":bruker", $bruker);
+    if($stm -> execute()) {
+        setcookie("oppdatertkandidat", "Informasjon oppdatert", time()+3, "/");
+        echo "";
+    } else {
+        setcookie("oppdatertkandidat", "Feil med oppdatering vennligst prøv igjen", time()+3, "/");
+        echo "";
+    }
+    header("Location: ../myprofile.php");
 }
-echo "<br/><a href = \"../myprofile.php\">Tilbake til forrige siden</a>";
 ?>

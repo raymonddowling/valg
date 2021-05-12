@@ -14,7 +14,7 @@ $stm = $mydb -> prepare($sql);
 $stm -> bindParam (":bt",$role);
 $stm -> bindParam (":ep",$epost);
 $stm -> execute();
-header ("location: Adminpermission.php");
+header ("location: dminpermission.php");
 
 ?>
 

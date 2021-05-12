@@ -19,16 +19,14 @@
             <button id="hamburgermeny" onclick=toggleMenu()>MENY</button>
             <ul id="menuitems">
                 <li id="home"><a href="default.php">Home</a></li>
-				<li><a href="logginn.php" class="logginnBtn">Logg inn</a></li>
+				<li><a href="logginn.php">Logg inn</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <h1>Register</h1> <!-- flyttet utenfor form-->
         <p>Fyll ut for å registrere deg!</p>
-        <!-- <form action="avstemning.html" method="post"> -->
         <form name = "reg_form" action="php/reg_bruker.php" method="post" onsubmit="return passordsjekk()">
-            <!-- <div class="container"> -->
 
             <label for="fornavn">Skriv ditt fornavn</label> <!-- added field for for- og etternavn-->
             <br/>
@@ -52,7 +50,6 @@
             <input type="password" placeholder="Gjenta passordet" name="passord2" id="passord2" onblur="passordsjekk()" required>
             <br/>
             <button type="submit" class="registerknapp" name="register">Register</button>  <!-- added name for bruk i php-skriptet. Trenger js for sjekke passord??? -->
-              <!-- </div> -->
         </form>
     </main>
 <footer>

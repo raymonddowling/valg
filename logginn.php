@@ -22,8 +22,10 @@ echo <<<MKR
 </form>
 MKR;
 if(isset($_COOKIE['logginnFeil'])) {
-    echo "<p class=\"phpmelding\">" .$_COOKIE['logginnFeil']."</p>";
-    header("refresh: 5");
+    $msg = $_COOKIE['logginnFeil'];
+    echo "<script>alert(\"$msg\");</script>";
+    // echo "<p class=\"phpmelding\">" .$_COOKIE['logginnFeil']."</p>";
+    // header("refresh: 5");
 }
 echo "
 </main>";

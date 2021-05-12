@@ -20,7 +20,7 @@ function redigerbar_forms($fulltnavn, $info, $trukket, $bildeid) {
         echo "<input type=\"checkbox\" name=\"trukket\" value=\"1\">";
     }
     echo <<<MKR
-    <input type="submit" name="oppdaterkandidatur" value="Oppdater kadidatur" class="registerknapp1">
+    <input type="submit" name="oppdaterkandidatur" value="Oppdater kadidatur" class="registerknapp">
     </form>
     </section>
     
@@ -63,17 +63,15 @@ function lesing_forms($fulltnavn, $info, $trukket) {
     MKR;
 }
 
-
 $innlogget = $_SESSION['innlogget'];
 $bruker = $_SESSION['epost'];
 $fulltnavn = $_SESSION['navn'];
 $valgperiode = $_SESSION['valgperiode'];
+$kandidat = $_SESSION['kandidat'];
 
-if(!$innlogget) {
-    
+if(!$innlogget || !$kandidat) { // returnere til hjemmeside hvis brukeren ikke er innlogget som kandidat
     header("Location: default.php");
     exit ("Tilgang ikke tillat");
-    
 }
 
 include 'php/dbconnect.php'; 
@@ -82,8 +80,6 @@ if(!$mydb) {
     exit("feil med forbindelse");
 }
 
-// $sql = "SELECT * FROM bruker LIMIT 1";
-// $d = $mydb->query($sql);
 $sql = "SELECT epost, informasjon, bilde, trukket \n"
 . "from bruker b INNER JOIN kandidat k \n"
 . "on b.epost = k.bruker \n"
@@ -103,6 +99,17 @@ include 'php/header.php';
 echo "<main>";
 echo "<h1>$title</h1>";
 echo "<section>";
+
+if(isset($_COOKIE['oppdatertkandidat'])) {
+    $msg = $_COOKIE['oppdatertkandidat'];
+    echo "<script>alert(\"$msg\");</script>";
+}
+
+if(isset($_COOKIE['bildeopplasting'])) {
+    $msg = $_COOKIE['bildeopplasting'];
+    echo "<script>alert(\"$msg\");</script>";
+}
+
 if(!$valgperiode) {
     echo "<h2>Rediger kadidaturinformasjon</h2>";
 } else {
@@ -110,15 +117,11 @@ if(!$valgperiode) {
 }
 
 if ($bildeid != 0) {
-    // echo "Et bilde ligger i db <br/>";
     $hentbilde = "SELECT hvor, tekst, alt FROM bilde WHERE idbilde = ?";
-    //   var_dump($hentbilde);
-    
     $stm = $mydb -> prepare($hentbilde);
     $stm -> bindParam(1, $bildeid, PDO::PARAM_INT);
     $stm -> execute();
     $bildet = $stm -> fetch(PDO::FETCH_ASSOC);
-    // var_dump($bildet);
     $hvor = $bildet['hvor'];
     $alt = $bildet['alt'];
     echo "<img src = \"$hvor\" alt = \"$alt\" height = \"200\" width = \"200\" id = \"profilepic\">";
