@@ -55,20 +55,14 @@ if(!$mydb) {
 <label>Velg Personen du vil nominere: </label>
 <select class="groupnr" name="groupnr" required autofocus>
     <?php
-        // echo "<p>e-post til brukeren: $name</p>";
         $sql = "SELECT epost, CONCAT(enavn, \" \" , fnavn) AS fultnavn FROM bruker ORDER BY enavn";
-        // $sql2 = "SELECT * FROM bruker LIMIT 2";
         $stm = $mydb -> prepare($sql);
         $res = $stm -> execute();
         var_dump($res);
         while($row =  $stm -> fetch(PDO::FETCH_ASSOC)) {
-            // echo "<p>Text</p>";
-            // var_dump($row);
             $lineje = "<option value = " . $row['epost'].">" . $row['fultnavn']."</option>"; // #### BRUK STRING VAR ####
-            //    $lineje = ("<h1>" . $row['fultnavn'] ."</h1>");
             echo $lineje;
         }
-        // echo <<EOT
         ?>
 </select>
 <label for="kandidat_info">Oppgir informasjon om kadidatet (valgfritt)</label>
@@ -79,15 +73,16 @@ if(!$mydb) {
 
 <?php
     if (isset($_COOKIE['nominated'])) {
-        echo "<p id='nominasjon'> " . $_COOKIE['nominated'] . "</p>" ;
-        header("refresh: 5");
-// print_r($_COOKIE);>
+        $msg = $_COOKIE['nominated'];
+        // echo "<p id='nominasjon'> $msg </p>" ;
+        // header("refresh: 5");
+        echo "<script>alert(\"$msg\");</script>";
     }
     ?>
 
 </main>
 
-<footer> <!-- onload=formtest()> -->
+<footer>
 <h3>Kontakt oss</h3>
 <p> Email: r-15@teams.usn.no <span class="copy">&copy; Gruppe R-15 2020</span></p>
 </footer>
