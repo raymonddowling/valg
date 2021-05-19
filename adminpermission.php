@@ -11,6 +11,12 @@ if(!$mydb) {
 }
 include 'php/header.php';
 
+if(isset($_COOKIE['endretrollen'])) {
+    $msg = $_COOKIE['endretrollen'];
+    echo "<script>alert(\"$msg\");</script>";
+    echo "<p>Changed Roles</p>";
+}
+
 //Liste av brukere i databasen
 //Velger enn vanlig bruker å endrer til bruker 2
 $sql = "SELECT epost, CONCAT(enavn, \" \" , fnavn) AS fultnavn FROM bruker WHERE brukertype = 1 ORDER BY enavn";
@@ -36,7 +42,7 @@ echo <<<MKR
     <option value = "3"> Kontrollør </option>
 </select>
  
-<button type="submit" class="registerknapp"> Endre Rollen </button>
+<button type="submit" class="registerknapp" name="endrerollen"> Endre Rollen </button>
 </form>
 </main>
 MKR;
