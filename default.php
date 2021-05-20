@@ -9,6 +9,11 @@
 $innlogget = $_SESSION['innlogget']; //$_SESSION['innlogget'] = TRUE;
 $title = "Valg 2021";
 
+if(isset($_COOKIE['regmislykket'])) {
+    $msg = $_COOKIE['regmislykket'];
+    echo "<script>alert(\"$msg\"):</script>";
+}
+
 include 'php/dbconnect.php';
 $mydb = new mypdo();
 if(!$mydb) {
@@ -28,19 +33,23 @@ echo <<<MKR
 <table>
     <tr>
         <td>Nominering Start</td>
-        <td>Nominering Slutt/td>
+        <td>Nominering Slutt</td>
         <td>Valg Start</td>
         <td>Valg Slutt</td>
     </tr>
     <tr>
-		<td>{$list['startforslag']}</td>
-		<td>{$list['sluttforslag']}</td>
-		<td>{$list['startvalg']}</td>
-		<td>{$list['sluttvalg']}</td>
+		<td> {$list['startforslag']} </td>
+		<td> {$list['sluttforslag']} </td>
+		<td> {$list['startvalg']} </td>
+		<td> {$list['sluttvalg']} </td>
 	</tr>
 
 </main>
 MKR;
+
+if (isset($_COOKIE['regmislykket'])) {
+    echo "<p class=\"phpmelding\">" .$_COOKIE['regmislykket'] . "</p>";
+}
 
 include 'php/footer.php';
 ?>

@@ -10,7 +10,7 @@ if(!$mydb) {
 if(isset($_POST['endrerollen'])) {
 
     $epost = $_POST["bruker"];
-    $role = $_POST["role"];
+    $role = $_POST["rolle"];
     $sql = "UPDATE bruker SET brukertype = :bt WHERE epost = :ep";
     $stm = $mydb -> prepare($sql);
     $stm -> bindParam (":bt",$role);

@@ -113,7 +113,7 @@ if(isset($_POST["logginn"]) || isset($_GET["reg"])) { // knapp trykket fra loggi
             case 99: //dummy for å sende til kandidat-profile siden under nominasjonsperioden
                 header("Location: ../myprofile.php");
             default:
-                header("Location: ../default.php");
+                header("Location: ../default.php" . SID);
             }
     } else {
         // echo '<script>alert("Logginn mislykkes");</script>';

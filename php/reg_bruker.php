@@ -34,10 +34,10 @@ if (isset($_POST['register'])) {
 if($lykkes) {
     // echo "<script>alert(\"Registering vellykket\")</script>";
     setcookie("regmislykket", "Registering vellykket", time()+3, "/");
-    header("Location: innlogging_sjekk.php?reg=1&pord=".$pord."&epost=".$epost); //prøv innlogginsjekk fo å sette opp meny
+    header("Location: innlogging_sjekk.php?reg=1&pord=".$pord."&epost=".$epost . SID); //prøv innlogginsjekk fo å sette opp meny
 } else {
     setcookie("regmislykket", "Det oppstår feil med registering\nVennligst prøv igjen senere", time()+3, "/");
-    header("Location: ../default.php");
+    header("Location: ../default.php" .SID);
 } 
 
 ?>
