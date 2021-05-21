@@ -151,6 +151,88 @@ p.phpmelding { /* php meldinger på skript sider under php-mappa */
     font-weight: 600;
 }
 
+/* #################### Swipe Containers ##########################
+   ################################################################ */
+   * {
+    box-sizing: border-box;
+  }
+  .slider {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    padding-top: 100px;
+    margin: 50px auto 0;
+    user-select: none;
+    touch-action: pan-y;
+  }
+
+  .slider h2, p {
+      top: 200px;
+      padding-bottom: 50px;
+
+  }
+  
+  .slider img {
+    pointer-events: none;
+    z-index: 1;
+    width: 410px;
+    height: 400px;
+    top: 300px;
+    border-radius: 5px;
+
+  }
+  
+  .slider-list {
+    width: 701px;
+    height: 760px;
+    overflow: hidden;
+  }
+  
+  .slider-list.grab {
+    cursor: grab;
+  }
+  
+  .slider-list.grabbing{
+    cursor: grabbing;
+  }
+  
+  .slider-track {
+    display: flex;
+  }
+  
+  .slide {
+    width: 700px;
+    height: 700px;
+    flex-shrink: 0;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid rgb(255, 255, 255);
+  }
+  
+  .slider-arrows {
+    margin-top: 15px;
+    text-align: center;
+  }
+  
+  .next,
+  .prev {
+    background: none;
+    border: none;
+    margin: 0 10px;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  
+  .next.disabled,
+  .prev.disabled {
+    opacity: .25;
+    pointer-events: none;
+  }
+  
+  
+
 /* Nettbrett */
 @media only screen and (min-width: 768px) {
     
