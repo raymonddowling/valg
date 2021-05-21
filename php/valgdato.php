@@ -1,30 +1,29 @@
 <?php
 
 // Siden utviklet av Raymond Dowling sist endret 21.februar 2021
-// Siden utviklet av Raymond Dowling sist endret 12.mai 2021
+// Siden utviklet av Raymond Dowling sist endret 21.mai 2021
 
 // Register / Endre datoer for valg og / eller nominsajon
 
 function writeHtml($startforslag, $sluttforslag, $startvalg, $sluttvalg) {
-    $innervar = "My name";
     $header = file_get_contents ("../txt/header.txt");
     $footer = file_get_contents ("../txt/footer.txt");
     $main = "<main>
     <h1>Valg 2021</h1>
-<table>
-    <tr>
-        <td>Nominering Start</td>
-        <td>Nominering Slutt/td>
-        <td>Valg Start</td>
-        <td>Valg Slutt</td>
-    </tr>
-    <tr>
-		<td>$startforslag</td>
-		<td>$sluttforslag</td>
-		<td>$startvalg</td>
-		<td>$sluttvalg</td>
-	</tr>
-</table>
+    <table>
+        <tr>
+            <td>Nominering Start</td>
+            <td>Nominering Slutt</td>
+            <td>Valg Start</td>
+            <td>Valg Slutt</td>
+        </tr>
+        <tr>
+            <td>$startforslag</td>
+            <td>$sluttforslag</td>
+            <td>$startvalg</td>
+            <td>$sluttvalg</td>
+        </tr>
+    </table>
     </main>";
 
     $fil = fopen("taimot.html", "w");

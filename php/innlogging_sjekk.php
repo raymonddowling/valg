@@ -111,22 +111,22 @@ if(isset($_POST["logginn"]) || isset($_GET["reg"])) { // knapp trykket fra loggi
                 header("Location: ../brukerlist.php");
                 break;
             case 99: //dummy for å sende til kandidat-profile siden under nominasjonsperioden
-                header("Location: ../myprofile.php");
+                header("Location: ../myprofile.php" . SID);
+                break;
             default:
                 header("Location: ../default.php" . SID);
             }
     } else {
         // echo '<script>alert("Logginn mislykkes");</script>';
         // echo "Problem med rowcount???";
-        setcookie("logginnFeil", "Mislykket pålogging", time()+3, "/");
-        header("Location: ../logginn.php"); //mislykket logginn
-        // echo "logginn mislykkes";
+        // setcookie("logginnFeil", "Mislykket pålogging", time()+3, "/");
+        // header("Location: ../logginn.php"); //mislykket logginn
     }
     
 } else {
     // echo '<script>alert("Logginn mislykkes");</script>';
     echo "problem comming directly";
-    //header("Location: ../logginn.html"); //skrevet siden i url
+    header("Location: ../logginn.php"); //skrevet siden i url
 }
 
         

@@ -101,7 +101,7 @@ p.phpmelding { /* php meldinger på skript sider under php-mappa */
     font-weight:  600;
     text-transform: uppercase;
     text-align: center;
-    margin: auto auto;
+    margin: 1rem auto;
 }
 
 /* ########## Flextabell ###############
