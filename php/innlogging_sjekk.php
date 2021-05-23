@@ -30,6 +30,19 @@ function isKandidat($epost) {
     }
 }
 
+function har_stemt($epost) {
+    $sql = "SELECT COUNT(stemme) FROM bruker WHERE epost = :bruker AND stemme IS NOT NULL";
+    $stm = $GLOBALS['mydb'] -> prepare($sql);
+    $stm -> bindParam(":bruker", $epost);
+    $stm -> execute();
+    $res = $stm -> fetch(PDO::FETCH_NUM);
+    if($res[0] == "0") {
+        return FALSE;
+    } else {
+        return TRUE;
+    }
+}
+
 function isNominering() {
     $sql = "SELECT startforslag, sluttforslag FROM valg";
     return isGyldigPeriode($sql);
@@ -101,6 +114,7 @@ if(isset($_POST["logginn"]) || isset($_GET["reg"])) { // knapp trykket fra loggi
         $_SESSION['kandidat'] = isKandidat($bruker);
         $_SESSION['nomineringsperiode'] = isNominering();
         $_SESSION['valgperiode'] = isValg();
+        $_SESSION['har_stemt'] = har_stemt($bruker);
         
         if($_SESSION['kandidat'] && $_SESSION['nomineringsperiode']) $brukertype = 99;
         switch ($brukertype) {
@@ -119,8 +133,8 @@ if(isset($_POST["logginn"]) || isset($_GET["reg"])) { // knapp trykket fra loggi
     } else {
         // echo '<script>alert("Logginn mislykkes");</script>';
         // echo "Problem med rowcount???";
-        // setcookie("logginnFeil", "Mislykket pålogging", time()+3, "/");
-        // header("Location: ../logginn.php"); //mislykket logginn
+        setcookie("logginnFeil", "Mislykket pålogging", time()+3, "/");
+        header("Location: ../logginn.php"); //mislykket logginn
     }
     
 } else {
@@ -130,5 +144,5 @@ if(isset($_POST["logginn"]) || isset($_GET["reg"])) { // knapp trykket fra loggi
 }
 
         
-        ?>
+?>
     
