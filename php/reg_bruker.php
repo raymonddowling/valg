@@ -20,7 +20,7 @@ if (isset($_POST['register'])) {
     $passord = sha1($salt.$pord);
 
     // prepare statement
-    $stmt = $mydb->prepare('INSERT INTO bruker (epost, passord, enavn, fnavn, brukertype) VALUES (?, ?, ?,?, ?)');
+    $stmt = $mydb->prepare('INSERT INTO bruker (epost, passord, enavn, fnavn, brukertype, stemme VALUES (?, ?, ?,?, ?, NULL)'); //set stemme til NULL ?? eller er det default?
     // bind paramaters
     $stmt->bindParam(1, $epost, PDO::PARAM_STR);
     $stmt->bindParam(2, $passord, PDO::PARAM_STR);
@@ -34,7 +34,7 @@ if (isset($_POST['register'])) {
 if($lykkes) {
     // echo "<script>alert(\"Registering vellykket\")</script>";
     setcookie("regmislykket", "Registering vellykket", time()+3, "/");
-    header("Location: innlogging_sjekk.php?reg=1&pord=".$pord."&epost=".$epost . SID); //prøv innlogginsjekk fo å sette opp meny
+    header("Location: innlogging_sjekk.php?reg=1&pord=".$pord."&epost=".$epost . SID); //bruk innlogginsjekk fo å sette opp meny
 } else {
     setcookie("regmislykket", "Det oppstår feil med registering\nVennligst prøv igjen senere", time()+3, "/");
     header("Location: ../default.php" .SID);

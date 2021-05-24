@@ -17,20 +17,19 @@ if(!$mydb) {
 function isKandidat($epost) {
     echo "Call isKandidat";
     // ###### sjekk om bruker er kandidat ############
-    $sql1 = "SELECT bruker FROM kandidat WHERE bruker = :bruker"; //AND avslått FALSE
+    $sql1 = "SELECT COUNT(bruker) FROM kandidat WHERE bruker = :bruker"; // avslått FALSE
     $stm1 = $GLOBALS['mydb'] -> prepare($sql1);  //##Doubl check GLOBALS
-    //$stm1 = $mydb -> prepare($sql1);
     $stm1 -> bindParam(":bruker", $epost);
     $stm1 -> execute();
-    $res = $stm1 -> fetch(PDO::FETCH_ASSOC);
-    if($stm1 -> rowCount() == 1) {
+    $res = $stm1 -> fetch(PDO::FETCH_NUM);
+    if($res[0] == 1) {
         return TRUE;
     } else {
         return FALSE;
     }
 }
 
-function har_stemt($epost) {
+function har_stemt($epost) { //sjekk om brukeren har avgitt en stemme
     $sql = "SELECT COUNT(stemme) FROM bruker WHERE epost = :bruker AND stemme IS NOT NULL";
     $stm = $GLOBALS['mydb'] -> prepare($sql);
     $stm -> bindParam(":bruker", $epost);
@@ -58,7 +57,7 @@ function isGyldigPeriode($sql) {
     // var_dump($sql);
     $stm = $GLOBALS['mydb'] -> prepare($sql);
     $stm -> execute();
-    $res = $stm -> fetch(PDO::FETCH_BOTH);
+    $res = $stm -> fetch(PDO::FETCH_NUM);
     // $res = $stm -> fetchAll();
     // print_r($res);
     //Sjekk mot perioden mot dagens dato
@@ -94,17 +93,21 @@ if(isset($_POST["logginn"])) {
 if(isset($_POST["logginn"]) || isset($_GET["reg"])) { // knapp trykket fra logginn siden eller registert
     $salt = "IT2_2021";
     $ps = sha1($salt.$passord);
-    $sql = "SELECT * FROM bruker WHERE epost = :bruker AND passord = :ps";
     $trygg ="SELECT COUNT(*) FROM bruker WHERE epost = :bruker AND passord = :ps";
-    $stm = $mydb->prepare($sql);
-    $stm -> bindParam(":bruker", $bruker);
-    $stm -> bindParam(":ps", $ps);
-    $stm->execute();
-    $result = $stm -> fetch(PDO::FETCH_ASSOC);
-    // echo "dump result count " . $stm -> rowCount();    var_dump($result); // ######## 23/1/21 får forventet reslutatet for riktig og galt passord
+    $stm1 = $mydb->prepare($trygg);
+    $stm1 -> bindParam(":bruker", $bruker);
+    $stm1 -> bindParam(":ps", $ps);
+    $stm1->execute();
+    $res = $stm1 -> fetch(PDO::FETCH_NUM);
     
-    
-    if($stm -> rowCount() == 1) { //skjekk innloggingsinformasjon mot databasen
+    if($res[0] == 1) { //skjekk innloggingsinformasjon mot databasen
+        $sql = "SELECT * FROM bruker WHERE epost = :bruker AND passord = :ps";
+        $stm = $mydb->prepare($sql);
+        $stm -> bindParam(":bruker", $bruker);
+        $stm -> bindParam(":ps", $ps);
+        $stm->execute();
+        $result = $stm -> fetch(PDO::FETCH_ASSOC);
+        
         $fulltnavn = $result['fnavn']." ".$result['enavn'];
         $brukertype = $result['brukertype']; // #### 17.feb sprint 4 tar være på bruketype og justere innloggetMeny.php
         $_SESSION['navn'] = $fulltnavn;

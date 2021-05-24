@@ -35,14 +35,10 @@ if ($_FILES['profilbilde']['error'] == 0) { //ingen error med opplasting
         
         if(!$ok1 || !$ok2) {
             setcookie("bildeopplasting", "Feil med opplasting \nvennligst prøv igjen", time()+3, "/");
-            // echo "Feil vennligst <a href= \"../myprofile.php\">prøve igjen</a>";
         } else {
             setcookie("bildeopplasting", "Bildeopplasting vellykket", time()+3, "/");
-            // echo "Bilet er lastetopp - gå til <a href=\"../myprofile.php\">forrige siden</a>";
         }
-    }     //else {        //update         $id = (int)$bildenr;     } ### Kun ett bilde er lov så kan bruke sammen navn, tekst og bilde id
     
-    // echo "Bilet er lastetopp - gå til <a href=\"../myprofile.php\">forrige siden</a>";
     header("Location: ../myprofile.php");
 } else {
     setcookie("bildeopplasting", "Ingen bilde valgt", time()+3, "/");

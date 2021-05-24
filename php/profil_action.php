@@ -21,10 +21,8 @@ if(isset($_POST['oppdaterkandidatur'])) {
     $stm -> bindParam(":bruker", $bruker);
     if($stm -> execute()) {
         setcookie("oppdatertkandidat", "Informasjon oppdatert", time()+3, "/");
-        echo "";
     } else {
         setcookie("oppdatertkandidat", "Feil med oppdatering vennligst prøv igjen", time()+3, "/");
-        echo "";
     }
     header("Location: ../myprofile.php");
 }

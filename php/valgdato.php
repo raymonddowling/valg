@@ -1,11 +1,15 @@
 <?php
+session_start();
 
 // Siden utviklet av Raymond Dowling sist endret 21.februar 2021
 // Siden utviklet av Raymond Dowling sist endret 21.mai 2021
 
 // Register / Endre datoer for valg og / eller nominsajon
 
+$brukertype = $_SESSION['brukertype'];
+
 function writeHtml($startforslag, $sluttforslag, $startvalg, $sluttvalg) {
+    $fil = fopen("taimot.html", "w");
     $header = file_get_contents ("../txt/header.txt");
     $footer = file_get_contents ("../txt/footer.txt");
     $main = "<main>
@@ -26,12 +30,16 @@ function writeHtml($startforslag, $sluttforslag, $startvalg, $sluttvalg) {
     </table>
     </main>";
 
-    $fil = fopen("taimot.html", "w");
     fwrite($fil, $header."\n");
     fwrite($fil, $main."\n");
     fwrite($fil, $footer);
     fclose($fil);
 
+}
+
+if($brukertype != 2) { //kun administatør skal har tilgang
+    header("Location: ../default.php");
+    exit("Ikke tillat");
 }
 
 include 'dbconnect.php';
@@ -60,5 +68,4 @@ if (isset($_POST['endre'])) {
     header("Location: ../valgadmin.php");
 }
 
-include 'footer.php';
 ?>

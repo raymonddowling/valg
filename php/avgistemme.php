@@ -18,7 +18,7 @@ if (isset($_POST['stem'])) {
     $stm -> bindParam(":vk", $valgt_kandidat);
     $stm -> execute();
 
-    $sql1 = "UPDATE bruker SET stemme = :kandidat WHERE epost = :innlogget";
+    $sql1 = "UPDATE bruker SET stemme = :kandidat WHERE epost = :innlogget"; 
     $stm1 = $mydb -> prepare($sql1);
     $stm1 -> bindParam(":kandidat", $valgt_kandidat);
     $stm1 -> bindParam(":innlogget", $stemmeberettige);

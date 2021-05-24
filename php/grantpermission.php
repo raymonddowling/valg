@@ -1,6 +1,13 @@
 <?php
 session_start();
 
+$brukertype = $_SESSION['brukertype'];
+
+if($brukertype != 2) { //kun administatør skal har tilgang
+    header("Location: ../default.php");
+    exit("Ikke tillat");
+}
+
 include 'dbconnect.php';
 $mydb = new mypdo();
 if(!$mydb) {
