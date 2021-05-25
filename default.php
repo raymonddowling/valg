@@ -43,7 +43,7 @@ echo <<<MKR
 		<td> {$list['startvalg']} </td>
 		<td> {$list['sluttvalg']} </td>
 	</tr>
-
+<img class="dtpics" id="choicepick" src="images/choiceindex.jpg" alt="ubesluttsom mann" height="400" width="400">
 </main>
 MKR;
 

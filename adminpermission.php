@@ -2,7 +2,13 @@
 session_start();
 
 $innlogget = $_SESSION['innlogget'];
+$brukertype = $_SESSION['brukertype'];
 $title = "Endre brukers rolle";
+
+if($brukertype !=2) {
+    header("Location: default.php");
+    exit("Ikke tillat");
+}
 
 include 'php/dbconnect.php';
 $mydb = new mypdo();
@@ -18,7 +24,7 @@ if(isset($_COOKIE['endretrollen'])) {
 }
 
 //Liste av brukere i databasen
-//Velger enn vanlig bruker å endrer til bruker 2
+//Velger enn vanlig bruker å endrer til bruker 2/3
 $sql = "SELECT epost, CONCAT(enavn, \" \" , fnavn) AS fultnavn FROM bruker WHERE brukertype = 1 ORDER BY enavn";
 $stm = $mydb -> prepare($sql);
 $stm -> execute();

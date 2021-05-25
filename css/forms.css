@@ -137,7 +137,21 @@ table {
   textarea {
     max-width: 90%;
   }
+
+   /* Avgistemme for valgene */
+#avgistemme {
+  display: inline; 
   
+  }
+input[type = radio] {
+    width: 20px;
+}
+  
+
+  /* input[type = radio] {
+    display: inline;
+  } */
+   
   /* Nettbrett & Desktop  utviklet av Raymond Dowling sist endret 20.november 2020*/
   /* Utnytt breden ved å dele skjeamet i kolonner */
   @media only screen and (min-width: 768px) { 

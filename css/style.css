@@ -231,16 +231,9 @@ p.phpmelding { /* php meldinger på skript sider under php-mappa */
     pointer-events: none;
   }
   
-  
-
 /* Nettbrett */
 @media only screen and (min-width: 768px) {
     
-    .dtpics {display: inline;}
-    
-    #choicepick {
-        float: right;
-    }
     
     nav {
         background-color: rgba(89, 158, 175, 1);
@@ -318,6 +311,11 @@ p.phpmelding { /* php meldinger på skript sider under php-mappa */
 }
 
 /* Desktop */
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1050px) {
+
+    .dtpics {display: inline;}
     
+    #choicepick {
+        float: right;
+    }
 }
