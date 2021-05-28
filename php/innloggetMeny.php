@@ -16,6 +16,7 @@ function brukerMeny() {
 	<button id="hamburgermeny" onclick=toggleMenu()>MENY</button>
 	<ul id="menuitems">
 	<li id="home"><a href="default.php">Home</a></li>
+	<li><a href="txt/valg_opplysning.html">Valg Opplysning</a></li>
 	<li><a href="byttpassord.php">Bytt passord</a></li>
 	MKR;
 	if($GLOBALS['nomineringsperiode']) { echo "<li><a href=\"nominering.php\">Nominering</a></li>";	}

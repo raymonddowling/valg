@@ -2,14 +2,14 @@
 session_start();
 
 // Siden utviklet av Raymond Dowling sist endret 21.februar 2021
-// Siden utviklet av Raymond Dowling sist endret 21.mai 2021
+// Siden utviklet av Raymond Dowling sist endret 28.mai 2021
 
 // Register / Endre datoer for valg og / eller nominsajon
 
 $brukertype = $_SESSION['brukertype'];
 
 function writeHtml($startforslag, $sluttforslag, $startvalg, $sluttvalg) {
-    $fil = fopen("taimot.html", "w");
+    $fil = fopen("../txt/valg_opplysning.html", "w");
     $header = file_get_contents ("../txt/header.txt");
     $footer = file_get_contents ("../txt/footer.txt");
     $main = "<main>

@@ -8,6 +8,7 @@ echo <<<MKR
 <button id="hamburgermeny" onclick=toggleMenu()>MENY</button>
     <ul id="menuitems">
 		<li id="home"><a href="default.php">Home</a></li>
+		<li><a href="txt/valg_opplysning.html">Valg Opplysning</a></li>
 		<li><a href="registering.html">Registering</a></li>
 	</ul>
 MKR;	
