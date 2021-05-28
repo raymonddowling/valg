@@ -29,7 +29,8 @@ function adminMeny() {
 }
 
 function kontrollerMeny() {
-	echo '<li><a href="brukerlist.php">Kontrollerer Epost domene</a></li>';
+	echo '<li><a href="brukerlist.php">Kontroll Epost domene</a></li>';
+	echo '<li><a href="kontroll_avstemning.php">Kontroll Avstemning</a></li>';
 
 }
 

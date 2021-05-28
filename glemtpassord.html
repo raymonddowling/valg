@@ -16,22 +16,18 @@
             <a href="index.html"> <img class="dtpics" src="images/election.png" alt="valgurne" height="100" width="130"> </a>
             <button id="hamburgermeny" onclick=toggleMenu()>MENY</button>
             <ul id="menuitems">
-                <li id="home"><a href="index.html">Home</a></li>
-				<li><a href="nominering.html">Nominering</a></li>
-				<li><a href="avstemning.html">Avstemning</a></li>
-				<li><a href="registering.html">Registering</a></li>
-				<li><a href="logginn.html">Logg inn</a></li>
+                <li id="home"><a href="default.php">Home</a></li>
+				<li><a href="logginn.php">Logg inn</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <h2>Glemt Passord</h2>
-        <p>Fyll ut for å finne passordet!</p>
-        <form action="php/sendmail.php" method="post">
-            <label for="email">Skriv Email</label> <br/>
+        <h1>Glemt Passord</h1>
+        <p>Fyll ut for å finne passordet</p>
+        <form name="finn_epost" action="finn_epost.php" method="post">
+            <label for="email">Skriv Email</label>
             <input type="email" placeholder="Skriv email" name="email" id="email" required>
-            <br/>         
-            <input type="submit" value="Søk" class="registerknapp">
+            <button type="submit" class="registerknapp" name="sokmail">Søk</button>
         </form>
        
     </main>

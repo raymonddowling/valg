@@ -31,33 +31,31 @@ input[type=file]  {
 } */
 
 
-/* Tabell i valagadmin knyttet til form for å endre innhold */
-/* Change to flexbox som i brukerlist.php ???? (25/3) */
+/* ################ TABLLER ############################
+   ## Basis design ###
+   ## vis loddrett på små skjerm ##
+   #####################################################
+*/
+
+th {
+  display: none;
+}
+
 table, td {
-  border: black;
+  display: block;
+  border: black solid 1px;
   border-collapse: collapse;
-  /* outline-color: green; */
-  border-style: double;
-  padding-right: 10px;
+  padding-right: 0.5rem;
   text-align: center;
-  /* padding: 5px; */
 }
 
 table {
-  display: inline-flex;
   margin-bottom: 20px;
   margin-right: 2px;
-  /* font-size: 0.75em; */
+  width: 90%;
 }
 
-/* table tr td a { lenke i tabllen skal ser ut som knapp */
-  #nyttvalg { /* lenke i tabllen skal ser ut som knapp */
-    background-color: #6E5A7E;
-    color: white;
-    cursor: pointer;
-    /* border-radius: 10%;
-    width: 80%; */
-  }
+
   
   /* .valgform input[type="datetime"], .valgform input[type="text"] {
     width: 150px;
@@ -73,6 +71,50 @@ table {
     color: #000;
   } */
   
+  
+/* ########## Flextabell ###############
+## Tabelldata som er responive #####
+## eks. brukerlist.php ############
+## vis data i kolloner på mobil og i rader med header på større skjermer ###
+###################################
+*/
+
+.flextabell {
+  /* display: flex;
+  flex-direction: column; */
+  /* flex-wrap: wrap; */
+  /* row-gap: 5px; */
+  /* width: 90%; */
+}
+
+.flextabelltop { 
+  /* display: none; */
+}
+
+/* .rowbreak { /* changed layout to col so class is for column break ???????
+  flex-basis: 100%;
+  width: 50px ;
+} */
+
+.stemmer, .epostadresse, .navn, .stemt {
+  /* flex-basis: 33%; */
+  height: 20px;
+}
+.epostadresse { /* fargelegg først celle for å markere ny informsjon */
+  background-color: #324A51;
+  color: white;
+  margin-top: 1.5rem;
+}
+
+/* .stemmt {
+  margin-bottom: 20px;
+} */
+
+/*  .navn, .stemme {
+  flex-shrink: 3;
+}
+*/
+
   
   /* 
   ##############################################################################################
@@ -162,8 +204,68 @@ input[type = radio] {
     textarea {
       max-width: 80%;
     }
+
+    /* ################ TABLLER ############################
+   ## Basis design ###
+   ## vis vannrett på store skjerm ##
+   #####################################################
+    */
+
+    table {
+      display: table;
+    }
+
+    th, td {
+      display: table-cell;
+    }
+
+    th {
+      background-color: #324A51;
+      color: white;
+      font-weight: 600;
+    }
+
+
+
     
+     /* ########### FLEX TABLE CHANGE TO ROW LAYOUT ON BIGGER SCREEN ################### */
+    /* 
+    .flextabell {
+      /* flex-direction: row;
+      flex-wrap: wrap; 
   }
   
-  @media only screen and (min-width: 2768px) {
+  .flextabelltop {
+      display: revert;
+      background-color: #324A51;
+      color: white;
+      font-weight: 600;
+  }
+   */
+  
+   .mobiltekst { /* skull ekstr tekst */
+      display: none;
+  }
+  
+  /*  .navn {
+      margin-left: auto;
+  } */
+  
+  .epostadresse { /* tilbakestille til fargene i tabllen */
+      background-color: initial;
+      color: initial;
+  }
+
+  /* 
+  .rowbreak {
+      flex-basis: 100%;
+      height: 20px;
+  } */
+  }
+  
+  @media only screen and (min-width: 1050px) {
+
+    table#default {
+      width: calc(90% - 400px); /* plass til bilde på default siden */
+    }
   }

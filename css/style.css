@@ -2,6 +2,7 @@
 
 html {
     font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 nav {
@@ -20,7 +21,7 @@ nav {
 #hamburgermeny { /*endret fra nav button TILL #hamburgermeny */
     text-decoration: overline underline line-through solid white;
     color: rgba(89, 158, 175, 1);
-    background-color: rgba(89, 158, 175, 1);
+    background-color: #599eaf;
     border-radius: 10%;
     border: none;
     padding: 3px 1px;
@@ -104,51 +105,24 @@ p.phpmelding { /* php meldinger på skript sider under php-mappa */
     margin: 1rem auto;
 }
 
-/* ########## Flextabell ###############
-## Tabelldata som er responive #####
-## eks. brukerlist.php ############
-## vis data i kolloner på mobil og i rader med header på større skjermer ###
-###################################
-*/
-
-.flextabell {
-    display: flex;
-    flex-direction: column;
-    /* flex-wrap: wrap; */
-    row-gap: 5px;
-    width: 90%;
-}
-
-.flextabelltop { 
-    display: none;
-}
-
-/* .rowbreak { /* changed layout to col so class is for column break ???????
-    flex-basis: 100%;
-    width: 50px ;
-} */
-
-.stemme, .epostadresse, .navn {
-    flex-basis: 33%;
-    height: 20px;
-}
-.epostadresse {
-    background-color: #324A51;
-    color: white;
-}
-
-.stemme {
-    margin-bottom: 20px;
-}
-
-/*  .navn, .stemme {
-    flex-shrink: 3;
-}
-*/
-
 .fremheve { /* legge vekt på når siden er annerleders pga forretningsregler  f.eks ikke redigere inof under valget */
     background-color: yellow;
     font-weight: 600;
+}
+
+details { /* i kontrollere_avsteming.php */
+    margin: 0.8rem 0;
+}
+
+details ol {
+    margin-top: 0,25rem;
+    margin-left: 2rem;
+    background: #eeeff0;
+    width: max-content;
+}
+
+details ol li {
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 /* #################### Swipe Containers ##########################
@@ -233,7 +207,11 @@ p.phpmelding { /* php meldinger på skript sider under php-mappa */
   
 /* Nettbrett */
 @media only screen and (min-width: 768px) {
-    
+    .dtpics {display: inline;}
+
+    #choicepick {
+        display: none;
+    }
     
     nav {
         background-color: rgba(89, 158, 175, 1);
@@ -274,48 +252,15 @@ p.phpmelding { /* php meldinger på skript sider under php-mappa */
         margin-top: 140px;
     }
     
-    /* ########### FLEX TABLE CHANGE TO ROW LAYOUT ON BIGGER SCREEN ################### */
-    
-    .flextabell {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-    
-    .flextabelltop {
-        display: flex;
-        background-color: #324A51;
-        color: white;
-        flex-basis: 33%;
-        font-weight: 600;
-    }
-    
-    .totalstemmer {
-        display: none;
-    }
-    
-    /*  .navn {
-        margin-left: auto;
-    } */
-    
-    .epostadresse {
-        background-color: initial;
-        color: initial;
-    }
-
-    /* 
-    .rowbreak {
-        flex-basis: 100%;
-        height: 20px;
-    } */
+   
     
 }
 
 /* Desktop */
 @media only screen and (min-width: 1050px) {
 
-    .dtpics {display: inline;}
-    
     #choicepick {
+        display: inline;
         float: right;
     }
 }
