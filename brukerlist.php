@@ -1,5 +1,9 @@
 <?php
 session_start();
+
+/* ### Siden utviklet av Raymond Dowling sist endret 28.mai 20201 ###### */
+
+
 $innlogget = $_SESSION['innlogget'];
 $brukertype = $_SESSION['brukertype'];
 
@@ -13,7 +17,6 @@ $mydb = new myPDO();
 if(!$mydb) {
     exit("Feil med forbindelse");
 }
-// SELECT epost, stemme, stemmer FROM bruker LEFT OUTER JOIN kandidat ON bruker.epost = kandidat.bruker WHERE RIGHT(epost, 6) NOT LIKE 'usn.no'
 $sql = "SELECT epost, CONCAT(enavn, \" \" , fnavn) AS navn, stemme, stemmer\n"
     . "FROM bruker LEFT OUTER JOIN kandidat\n"
     . "ON bruker.epost = kandidat.bruker\n"

@@ -16,19 +16,19 @@ function writeHtml($startforslag, $sluttforslag, $startvalg, $sluttvalg) {
     <h1>Valg 2021</h1>
     <table>
         <tr>
-            <td>Nominering Start</td>
-            <td>Nominering Slutt</td>
-            <td>Valg Start</td>
-            <td>Valg Slutt</td>
+            <th>Nominering Start</th>
+            <th>Nominering Slutt</th>
+            <th>Valg Start</th>
+            <th>Valg Slutt</th>
         </tr>
         <tr>
-            <td>$startforslag</td>
-            <td>$sluttforslag</td>
-            <td>$startvalg</td>
-            <td>$sluttvalg</td>
+            <td><span class=\"mobiltekst\">Nominering Start</span> <strong>$startforslag</strong></td>
+            <td><span class=\"mobiltekst\">Nominering Slutt</span> <strong>$sluttforslag</strong></td>
+            <td><span class=\"mobiltekst\">Valg Start</span> <strong>$startvalg</strong></td>
+            <td><span class=\"mobiltekst\">Valg Slutt</span> <strong>$sluttvalg</strong></td>
         </tr>
     </table>
-    </main>";
+    </main>\n";
 
     fwrite($fil, $header."\n");
     fwrite($fil, $main."\n");
