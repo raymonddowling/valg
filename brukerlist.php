@@ -48,6 +48,6 @@ MKR;
 while ($resultat = $stm -> fetch(PDO::FETCH_ASSOC)) {
     echo "<tr>\n<td class=\"epostadresse\">". $resultat['epost'] . "</td> <td class=\"navn\">". $resultat['navn']. "</td> <td class=\"stemmer\"><span class=\"mobiltekst\">Total Stemmer: </span><strong>" . $resultat['stemmer'] . "</strong></td> </td> <td class=\"stemmt\"><span class=\"mobiltekst\">Stemte: </span><strong>" . $resultat['stemme'] . "</strong></td> </tr>\n";
 }
-echo "</table>"."</main>";
+echo "</table>"."</main>\n";
 
 include 'php/footer.php';
