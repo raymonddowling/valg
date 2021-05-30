@@ -2,7 +2,7 @@
 session_start();
 /* 
 #### Siden utviklet av Raymond Dowling ###########
-#### Sist endret 27.feburar 2021 ################
+#### Sist endret 29.mai 2021 ################
  */
 
 // sjekk om logginn er admin
@@ -146,6 +146,5 @@ if(isset($_POST["logginn"]) || isset($_GET["reg"])) { // knapp trykket fra loggi
     header("Location: ../logginn.php"); //skrevet siden i url
 }
 
-        
 ?>
     

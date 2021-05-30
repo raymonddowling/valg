@@ -172,6 +172,11 @@ table {
     border: #599EAF solid 5px;
   }
 
+  .registerknapp:disabled {
+    background-color: grey;
+  }
+
+
   select {
     width: 200px;
   }

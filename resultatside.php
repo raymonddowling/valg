@@ -6,13 +6,33 @@ session_start();
 /* ## Siden utviklet av Raymond Dowling sist endret 28.mai 2021 ### 
   ### Kun admin og kontroller kan se sidnen för valget ##### */
 
+function vis_resultat($mydb, $brukertype) {
+    /* Innlogget brukere kan se resultat ettter valget er avsluttet og kontrollert */
+    $sql = "SELECT sluttvalg, kontrollert FROM valg";
+    $stm = $mydb -> prepare($sql);
+    $stm -> execute();
+    $res = $stm -> fetch(PDO::FETCH_NUM);
+    if($res[0] < $res[1] || $brukertype == 2 || $brukertype == 3) {
+        return TRUE;
+    } else {
+        return FALSE;
+    }
+}
+
 $innlogget = $_SESSION['innlogget'];
+$brukertype = $_SESSION['brukertype'];
+$idag = date('Y-m-d H:i:s');
 $title = "Resultat av Valg 2021";
 
 include 'php/dbconnect.php';
 $mydb = new mypdo();
 if(!$mydb) {
     exit("Feil med forbindelse");
+}
+
+if(!vis_resultat($mydb, $brukertype)) {
+    header("Location: default.php");
+    exit("Ikke tillat!");
 }
 
 include 'php/header.php';
