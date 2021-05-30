@@ -21,6 +21,7 @@ if(!$mydb) {
 include 'php/header.php';
 echo "<main>\n";
 echo "<h1>$title</h1>\n";
+echo "<section id=\"kontoll\">";
 $sql = "SELECT CONCAT(enavn, \" \", fnavn) as fultnavn, stemmer, epost FROM kandidat INNER JOIN bruker ON bruker.epost = kandidat.bruker";
 $stm = $mydb -> prepare($sql);
 $ok =$stm -> execute();
@@ -44,8 +45,37 @@ while($row = $stm -> fetch(PDO::FETCH_ASSOC)) {
 }
 $stm -> closeCursor();
 
-echo "</section> \n </main>\n";
+echo "</section>\n";
+
+$sql = "SELECT sluttvalg FROM valg";
+$idag = date("Y-m-d H:i:s");
+$stm = $mydb -> prepare($sql);
+$stm -> execute();
+$rad = $stm -> fetch(PDO::FETCH_NUM);
+$sluttvalg = $rad[0];
+if($sluttvalg > $idag) {
+    $btn_validere = "<button type=\"submit\" class=\"registerknapp\" name=\"validere\" disabled>Validere</button>\n"
+                    . "<em>Etter Valget er avsluttet</em>";
+} else {
+    $btn_validere = "<button type=\"submit\" class=\"registerknapp\" name=\"validere\">Validere</button>";
+}
+
+echo <<<MKR
+<section id=\"validere\">
+<form action="php/validere_avstemning.php" name="validere_avstemning" method="post">
+    <p>Dersom avstemning er riktig klikk på "Validere" knappen for å publisere reslutatet.</p>
+    $btn_validere
+</form>
+MKR;
+
+echo "</main>\n";
 
 include 'php/footer.php';
+
+/* tilbakemedling om validereing av avsteming */
+if(isset($_COOKIE['avsteming_valid'])) {
+    $msg = $_COOKIE['avsteming_valid'];
+    echo "<script>alert(\"$msg\")</script>";
+}
 
 ?>
