@@ -1,5 +1,4 @@
-// Denne siden er utviklet av Raymond.  Sist endret 15.november 2020
-//22feb21
+// Denne siden er utviklet av Raymond.  Sist endret 30.mai 2021
 
 // sjekk at passord er rigtig skrevet 
 function passordsjekk() {
@@ -25,7 +24,7 @@ function vismelding() {
 } */
 
 /* ## kun 1 valg ikke lenger nødvending? */
-function kopitr(radnr) { //kopi valg data fra tabellen til form
+/* function kopitr(radnr) { //kopi valg data fra tabellen til form
     // hent verdier i raden 
     const rad = document.getElementsByClassName("rad".concat(radnr));
     let v = rad[0].innerHTML.replace(/\<td\>/g, "");
@@ -49,7 +48,7 @@ function visValgform(head, form) {
     const valgforms = document.getElementsByClassName("valgform");
     valgforms[head].style.display = "flex";
     valgforms[form].style.display = "flex";
-} 
+}  */
 
 function sjekkDatoene() { // sjekk nominasjons- og valgperiode er gylidige fra valg form i valgadmin.php
     // datoene = new Array(4);

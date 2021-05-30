@@ -47,6 +47,7 @@ $stm -> closeCursor();
 
 echo "</section>\n";
 
+// Validere avsteming etter at valget er avsluttet
 $sql = "SELECT sluttvalg FROM valg";
 $idag = date("Y-m-d H:i:s");
 $stm = $mydb -> prepare($sql);
