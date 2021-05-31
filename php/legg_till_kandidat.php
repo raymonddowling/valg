@@ -15,8 +15,8 @@ if(!$mydb) {
 }
 
 if(isset ($_POST['nominated'])) {
-    
-    $nominerte =  $_POST['groupnr'];
+
+    $nominerte =  $_POST['personer'];
     $info = $_POST['kandidat_info'];
     $forstegang = FALSE; // nominerte for første gang
 
@@ -60,6 +60,12 @@ if(isset ($_POST['nominated'])) {
         setcookie('nominated', "nominasjonen er registreret", time()+3, '/' );
         
     }
+
+    header("Location: ../nominering.php");
+
+} else {
+    header("Location: ../default.php");
+    exit("Ikke tillat");
 }
 
 ?>

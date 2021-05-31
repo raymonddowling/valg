@@ -20,7 +20,7 @@ if (isset($_POST['register'])) {
     $passord = sha1($salt.$pord);
 
     // prepare statement
-    $stmt = $mydb->prepare('INSERT INTO bruker (epost, passord, enavn, fnavn, brukertype, stemme VALUES (?, ?, ?,?, ?, NULL)'); //set stemme til NULL ?? eller er det default?
+    $stmt = $mydb->prepare('INSERT INTO bruker (epost, passord, enavn, fnavn, brukertype, stemme) VALUES (?, ?, ?,?, ?, NULL)'); //set stemme til NULL ?? eller er det default?
     // bind paramaters
     $stmt->bindParam(1, $epost, PDO::PARAM_STR);
     $stmt->bindParam(2, $passord, PDO::PARAM_STR);

@@ -176,9 +176,12 @@ table {
     background-color: grey;
   }
 
-
   select {
     width: 200px;
+  }
+
+  select option:disabled {
+    color: red;
   }
 
   textarea {
