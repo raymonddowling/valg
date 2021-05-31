@@ -5,6 +5,10 @@ html {
     font-family: 'Times New Roman', Times, serif;
 }
 
+body {
+  background-color: white;
+}
+
 nav {
     background-color: rgba(89, 158, 175, 1);
     position: fixed;
@@ -144,11 +148,11 @@ details ol li {
     padding-top: 140px;
     
   }
-
+  
   .slides {
     display: flex;
     overflow-x: auto;
-
+    
     border-radius: 6px;
     
     scroll-behavior: smooth;
@@ -157,7 +161,7 @@ details ol li {
     scroll-snap-points-x: repeat(300px);
     scroll-snap-type: mandatory;
   }
-  
+
   .slides p, h1, h2, h3, h4, h5 {
       font-size: 30px;
   }
@@ -170,7 +174,7 @@ details ol li {
     margin-top: 290px;
     background-color: #324A51;
   }
-  
+
   .slides::-webkit-scrollbar {
     width: 9px;
     height: 9px;
@@ -192,17 +196,17 @@ details ol li {
     transform: scale(1);
     transition: transform 0.4s;
     position: relative;
-  
+    
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 100px;
   }
-  
+
   .slides > div .info {
       top: 200px;
   }
-  
+      
   .slides > div:target {
     transform: scale(0.9);
   }
@@ -253,31 +257,11 @@ details ol li {
       display: none;
     }
   }
-  
-  @media print {
-
-    body {
-      background-color: white;
-      /* margin: 0;
-      padding: 0; */
-  }
-  
-
-  /*Utskrift */
-  article {
-    column-width: 15em;
-    column-gap: 5em;
-  }
-  
-  /* image */
-  img.dark {
-    filter: invert(100%) brightness(100%) contrast(120%)
-  }
 
   
 /* Nettbrett */
 @media only screen and (min-width: 768px) {
-    .dtpics {display: inline;}
+    /* .dtpics {display: inline;}  contradiction with #choicepic i.e only 1 pic*/
 
     #choicepick {
         display: none;
@@ -329,8 +313,16 @@ details ol li {
 /* Desktop */
 @media only screen and (min-width: 1050px) {
 
-    #choicepick {
-        display: inline;
-        float: right;
-    }
+  #choicepick {
+      display: inline;
+      float: right;
+  }
+}
+
+@media print {
+
+  header {
+    display: none;
+  }
+
 }
