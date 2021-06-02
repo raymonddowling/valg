@@ -14,7 +14,8 @@ function har_stemt() {
 	$res = $stm -> execute();
 	
 	while ($row = $stm -> fetch(PDO::FETCH_ASSOC)) {
-		echo "<label for=\"kandidat\">{$row['fultnavn']}</label><br/>";
+		echo "<label for=\"kandidat\">{$row['fultnavn']}</label>";
+		echo "<a href=\"kandidat_info.php?kinfo={$row['bruker']}\">mer info</a> <br/>";
 	}
 	
 	echo "</form>";
@@ -33,7 +34,8 @@ function ikke_stemt() {
 
 	while ($row = $stm -> fetch(PDO::FETCH_ASSOC)) {
 		echo "<input type=\"radio\" name=\"kandidat_stemt\" value=\"" . $row['bruker'] . "\">";
-		echo "<label for=\"kandidat\">{$row['fultnavn']}</label><br/>";
+		echo "<label for=\"kandidat\">{$row['fultnavn']}</label>";
+		echo "<a href=\"kandidat_info.php?kinfo={$row['bruker']}\">mer info</a> <br/>";
 	}
 
 	echo <<<MKR
