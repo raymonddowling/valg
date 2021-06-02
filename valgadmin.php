@@ -55,7 +55,7 @@ echo <<<MKR
 
 </main>
 MKR;
-include 'php/footer.php'; //footer height 70px
+include 'php/footer.php';
 ?>
 
 

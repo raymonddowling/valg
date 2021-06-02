@@ -5,13 +5,11 @@ session_start();
 // Endringer skjedd 22. mai 2021 ilag med Raymond og Arientim
 // siden utivklet av Raymond Dowling sist endret 22.mai 2021
 
-//lager function har stemt
 function har_stemt() {
 	echo <<<MKR
 	<form action="" id="avgistemme" name="avgistemme" method="POST">
 	MKR;
-	//Velger riktige attributter for å få tilgang til å avgi stemme
-	$sql = "SELECT bruker, CONCAT(enavn, \" \" , fnavn) AS fultnavn FROM kandidat, bruker WHERE kandidat.bruker = bruker.epost";
+	$sql = "SELECT bruker, CONCAT(enavn, \" \" , fnavn) AS fultnavn FROM kandidat, bruker WHERE kandidat.bruker = bruker.epost AND trukket = 0 ORDER BY enavn";
 	$stm = $GLOBALS['mydb'] -> prepare($sql);
 	$res = $stm -> execute();
 	
@@ -29,7 +27,7 @@ function ikke_stemt() {
 	<form action="php/avgistemme.php" id="avgistemme" name="avgistemme" method="POST">
 	MKR;
 
-	$sql = "SELECT bruker, CONCAT(enavn, \" \" , fnavn) AS fultnavn FROM kandidat, bruker WHERE kandidat.bruker = bruker.epost";
+	$sql = "SELECT bruker, CONCAT(enavn, \" \" , fnavn) AS fultnavn FROM kandidat, bruker WHERE kandidat.bruker = bruker.epost AND trukket = 0 ORDER BY enavn";
 	$stm = $GLOBALS['mydb'] -> prepare($sql);
 	$res = $stm -> execute();
 

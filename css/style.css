@@ -59,12 +59,6 @@ ul#menuitems li a {
     text-decoration: none;
 }
 
-body {
-    background-color: white;
-    /* margin: 0;
-    padding: 0; */
-}
-
 main {
     width: 99%;
     margin-top: 50px;
@@ -261,7 +255,6 @@ details ol li {
   
 /* Nettbrett */
 @media only screen and (min-width: 768px) {
-    /* .dtpics {display: inline;}  contradiction with #choicepic i.e only 1 pic*/
 
     #choicepick {
         display: none;
@@ -277,15 +270,14 @@ details ol li {
         display: none;
     }
     
-    .logginBtn {  /* ######### OMMITTED FROM ONE DRIVE ################# */
+    .logginBtn {
         grid-column-start: 3;
-        /*color: yellow; NOT SHOWING YELLOW*/
         grid-row: 1;
     }
     
     #menuitems {
         display: inline;
-        grid-column: 2 / -4; /* / -3; */
+        grid-column: 2 / -4;
         grid-row: 1;
         margin-top: 1.5em;
     }
@@ -305,8 +297,6 @@ details ol li {
     main {
         margin-top: 140px;
     }
-    
-   
     
 }
 
