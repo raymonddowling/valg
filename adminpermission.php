@@ -1,5 +1,7 @@
 <?php
 session_start();
+// Siden utviklet av Arientim Sopa 20.Mai.2021
+// Siden utviklet av Raymond Dowling sist endret 2.juni 2021
 
 $innlogget = $_SESSION['innlogget'];
 $brukertype = $_SESSION['brukertype'];
@@ -23,9 +25,9 @@ if(isset($_COOKIE['endretrollen'])) {
     echo "<p>Changed Roles</p>";
 }
 
-//Liste av brukere i databasen
-//Velger enn vanlig bruker å endrer til bruker 2/3
-$sql = "SELECT epost, CONCAT(enavn, \" \" , fnavn) AS fultnavn FROM bruker WHERE brukertype = 1 ORDER BY enavn";
+//Velg enn vanlig bruker som ikke er kandidat
+$sql = "SELECT epost, CONCAT(enavn, \" \" , fnavn) AS fultnavn FROM bruker
+         WHERE brukertype = 1 AND epost NOT IN (SELECT bruker FROM kandidat WHERE trukket = 0) ORDER BY enavn";
 $stm = $mydb -> prepare($sql);
 $stm -> execute();
 
@@ -40,6 +42,7 @@ while($row =  $stm -> fetch(PDO::FETCH_ASSOC)) {
     $lineje = "<option value = " . $row['epost'].">" . $row['fultnavn']."</option>"; // #### BRUK STRING VAR ####
     echo $lineje;
 }
+//Velger å endre til admin eller kontrollør
 echo <<<MKR
 </select>
 <label for="rolle"> Velg rolle </label>

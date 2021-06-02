@@ -2,13 +2,15 @@
 session_start();
 
 // <!-- siden utviklet av Arientim Sopa sist endret 16.oktober 2020-->
+// Endringer skjedd 22. mai 2021 ilag med Raymond og Arientim
 // siden utivklet av Raymond Dowling sist endret 22.mai 2021
 
+//lager function har stemt
 function har_stemt() {
 	echo <<<MKR
 	<form action="" id="avgistemme" name="avgistemme" method="POST">
 	MKR;
-	
+	//Velger riktige attributter for å få tilgang til å avgi stemme
 	$sql = "SELECT bruker, CONCAT(enavn, \" \" , fnavn) AS fultnavn FROM kandidat, bruker WHERE kandidat.bruker = bruker.epost";
 	$stm = $GLOBALS['mydb'] -> prepare($sql);
 	$res = $stm -> execute();
@@ -20,7 +22,7 @@ function har_stemt() {
 	echo "</form>";
 	echo "<p class=\"fremheve\">Din stemme er reigistert</p>";
 }
-
+//Ikke stemt function for å da kunne stemme
 function ikke_stemt() {
 	echo <<<MKR
 	<legend>Hvem har du lust å stemme på i år?</legend>

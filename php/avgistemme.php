@@ -13,11 +13,13 @@ if (isset($_POST['stem'])) {
     $valgt_kandidat = $_POST['kandidat_stemt'];
     $stemmeberettige = $_SESSION['epost']; //innlogget brukeren
 
+    /* øk antall stememr til kandidaten */
     $sql = "UPDATE kandidat SET stemmer = stemmer + 1 WHERE bruker = :vk";
     $stm = $mydb -> prepare($sql);
     $stm -> bindParam(":vk", $valgt_kandidat);
     $stm -> execute();
 
+    /* registere at brukeren har stemt */
     $sql1 = "UPDATE bruker SET stemme = :kandidat WHERE epost = :innlogget"; 
     $stm1 = $mydb -> prepare($sql1);
     $stm1 -> bindParam(":kandidat", $valgt_kandidat);
