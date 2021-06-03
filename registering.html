@@ -29,25 +29,25 @@
         <p>Fyll ut for å registrere deg!</p>
         <form name = "reg_form" action="php/reg_bruker.php" method="post" onsubmit="return passordsjekk()">
             <label for="fornavn">Skriv ditt fornavn</label> <!-- added field for for- og etternavn-->
-            <br/>
+            
             <input type="text" placeholder="Skriv fornavn" name="fornavn" id="fornavn" required>
-            <br/>
+            
             <label for="etternavn">Skriv ditt etternavn</label>
-            <br/>
+            
             <input type="text" placeholder="Skriv etternavn" name="etternavn" id="etternavn" required>
-            <br/>
+            
             <label for="email">Velg Email</label>
-            <br/>
+            
             <input type="email" placeholder="Skriv email" name="email" id="email" required>
-            <br/>
+            
             <label for="password">Velg passord</label>
-            <br/>
+            
             <input type="password" placeholder="Skriv passord" name="password" id="password" required>
-            <br/>
+            
             <label for="passord2">Gjenta passordet</label>
-            <br/>
+            
             <input type="password" placeholder="Gjenta passordet" name="passord2" id="passord2" onblur="passordsjekk()" required>
-            <br/>
+            
             <button type="submit" class="registerknapp" name="register">Register</button>  <!-- added name for bruk i php-skriptet. Trenger js for sjekke passord??? -->
         </form>
     </main>

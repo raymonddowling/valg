@@ -22,7 +22,7 @@ nav {
     grid-auto-flow: column;
 }
 
-nav a:focus, nav a:hover {
+nav li>a:focus, nav li>a:hover {
   background-color: #95B0B7;
 
 }

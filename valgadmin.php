@@ -43,16 +43,16 @@ echo <<<MKR
 <form name="valgdato" id="valgdato" action="php/valgdato.php" method="POST" enctype=”text/plain” class="valgform" onsubmit="return sjekkDatoene();"> <!-- target for melding & js for dato-sjekk -->
     <label for="startforslag">Startdato for Nominering</label>
     <input type="datetime" name="startforslag" id="startforslag" placeholder="yyyy-mm-dd hh:mm:ss" value={$result['startforslag']}>
-    <br/>
+    
     <label for="sluttforslag">Sluttdato for Nominering</label>
     <input type="datetime" name="sluttforslag" id="sluttforslag" placeholder="yyyy-mm-dd hh:mm:ss" value={$result['sluttforslag']}>
-    <br/>
+    
     <label for="startvalg">Startdato for Valg</label>
     <input type="datetime" name="startvalg" id="startvalg" placeholder="yyyy-mm-dd hh:mm:ss" value={$result['startvalg']}>
-    <br/>
+    
     <label for="sluttvalg">Sluttdato for Valg</label>
     <input type="datetime" name="sluttvalg" id="sluttvalg" placeholder="yyyy-mm-dd hh:mm:ss" value={$result['sluttvalg']}>
-    <br/>
+    
     <button type="submit" value="Endre" name="endre" class="registerknapp">Endre</button>
 </form>
 

@@ -36,7 +36,7 @@ table {
   /* 
   ##############################################################################################
   ########## Uniform Layout for forms ##############################
-  ########## Use Classy pallett from https://mycolor.space/?hex=%23599EAF&sub=1 ############
+  ########## Use Classy pallett from   ############
   ######### Utviklet av Shia sist endret 25.mars 2021 ###################
   ######### Utviklet av Raymond Dowling sist endret 25.mars 2021 ###################
   ##############################################################################################
@@ -54,6 +54,7 @@ table {
   
   label {
     font-weight: 600;
+    white-space: nowrap;
   }
    
   input {
@@ -79,7 +80,7 @@ table {
     width: max-content;
   }
   
-  .registerknapp1:focus, .registerknapp:focus {
+  .registerknapp1:focus, .registerknapp:focus, .logginnBtn:focus {
     text-transform: uppercase;
     border: #599EAF solid 5px;
   }
@@ -118,13 +119,21 @@ table {
  
   /* Utnytt breden ved å dele skjeamet i kolonner */
   @media only screen and (min-width: 868px) { 
+
+    form input {
+      display: block;
+
+    }
+
     form[name = reg_form], form[name=valgdato] {
       display: block;
       column-count: 2;
     }
-    #email, #sluttforslag {
+
+    /* #email, #sluttforslag {
       break-after: column;
-    }
+    } */
+
     textarea {
       max-width: 80%;
     }
