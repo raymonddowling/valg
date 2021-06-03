@@ -27,6 +27,7 @@ table {
 .stemmer, .epostadresse, .navn, .stemt {
   height: 20px;
 }
+
 .epostadresse { /* fargelegg først celle for å markere ny informsjon */
   background-color: #324A51;
   color: white;
@@ -54,7 +55,6 @@ table {
   
   label {
     font-weight: 600;
-    white-space: nowrap;
   }
    
   input {
@@ -130,9 +130,9 @@ table {
       column-count: 2;
     }
 
-    /* #email, #sluttforslag {
+    #email, #sluttforslag {
       break-after: column;
-    } */
+    }
 
     textarea {
       max-width: 80%;
@@ -166,16 +166,14 @@ table {
       background-color: initial;
       color: initial;
   }
+}
 
-  
+
   @media only screen and (min-width: 1050px) {
 
     form[name = reg_form], form[name=valgdato] {
       display: block;
       column-count: 3;
-    }
-    #email, #sluttforslag {
-      break-after: column;
     }
 
     table#default {

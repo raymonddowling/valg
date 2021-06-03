@@ -7,11 +7,8 @@ function epost_funnet($epost, $title) {
     <h2>Velg nytt passord for $epost</h2>
     <form action="php/nyttpassord.php" method="POST">
         <label for="password">Velg passord</label>
-        <br/>
         <input type="password" placeholder="Skriv passord" name="password" id="password" required>
-        <br/>
         <label for="passord2">Gjenta passordet</label>
-        <br/>
         <input type="password" placeholder="Gjenta passordet" name="passord2" id="passord2" onblur="passordsjekk()" required>
         <input type="hidden" name="epost" value="{$epost}"/>
         <button type="submit" class="registerknapp" name="bekreft">Bekreft</button>

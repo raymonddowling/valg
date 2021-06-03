@@ -28,8 +28,6 @@ MKR;
 if(isset($_COOKIE['endretdato'])) {
     $msg = $_COOKIE['endretdato'];
     echo "<script>alert(\"$msg\");</script>";
-    // echo "<p class=\"phpmelding\">" .$_COOKIE['endretdato']."</p>";
-    // header("refresh: 5");
 }
 
 $sql = "SELECT tittel,startforslag,sluttforslag,startvalg,sluttvalg FROM valg LIMIT 1";  // ########## Oppdatert DB-Modell ett ord #### Skal være kun et valg i tabellen
@@ -42,16 +40,16 @@ echo <<<MKR
 <h2 class="valgform">Endre datoene</h2>
 <form name="valgdato" id="valgdato" action="php/valgdato.php" method="POST" enctype=”text/plain” class="valgform" onsubmit="return sjekkDatoene();"> <!-- target for melding & js for dato-sjekk -->
     <label for="startforslag">Startdato for Nominering</label>
-    <input type="datetime" name="startforslag" id="startforslag" placeholder="yyyy-mm-dd hh:mm:ss" value={$result['startforslag']}>
+    <input type="datetime" name="startforslag" id="startforslag" placeholder="yyyy-mm-dd hh:mm:ss" value="{$result['startforslag']}">
     
     <label for="sluttforslag">Sluttdato for Nominering</label>
-    <input type="datetime" name="sluttforslag" id="sluttforslag" placeholder="yyyy-mm-dd hh:mm:ss" value={$result['sluttforslag']}>
+    <input type="datetime" name="sluttforslag" id="sluttforslag" placeholder="yyyy-mm-dd hh:mm:ss" value="{$result['sluttforslag']}">
     
     <label for="startvalg">Startdato for Valg</label>
-    <input type="datetime" name="startvalg" id="startvalg" placeholder="yyyy-mm-dd hh:mm:ss" value={$result['startvalg']}>
+    <input type="datetime" name="startvalg" id="startvalg" placeholder="yyyy-mm-dd hh:mm:ss" value="{$result['startvalg']}">
     
     <label for="sluttvalg">Sluttdato for Valg</label>
-    <input type="datetime" name="sluttvalg" id="sluttvalg" placeholder="yyyy-mm-dd hh:mm:ss" value={$result['sluttvalg']}>
+    <input type="datetime" name="sluttvalg" id="sluttvalg" placeholder="yyyy-mm-dd hh:mm:ss" value="{$result['sluttvalg']}">
     
     <button type="submit" value="Endre" name="endre" class="registerknapp">Endre</button>
 </form>
