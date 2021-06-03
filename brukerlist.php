@@ -26,7 +26,7 @@ $sql = "SELECT epost, CONCAT(enavn, \" \" , fnavn) AS navn, stemme, stemmer\n"
 $stm = $mydb -> prepare($sql);
 $stm -> execute();
 
-$title = "Bruker list";
+$title = "Brukerlist";
 include 'php/header.php';
 
 echo <<<MKR

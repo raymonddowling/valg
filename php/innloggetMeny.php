@@ -21,16 +21,16 @@ function brukerMeny($ettervalget) {
 }
 
 function adminMeny($ettervalget) {
-	echo '<li><a href="valgadmin.php">Administere Valget</a></li>';
-	echo '<li><a href="adminpermission.php">Administere Roller</a></li>';
 	if(!$ettervalget) { echo "<li><a href=\"resultatside.php\">Valg Resultat</a></li>";} // vises for alle bruker etter valget
+	echo '<li><a href="valgadmin.php">Valg Amin</a></li>';
+	echo '<li><a href="adminpermission.php">Roller Admin</a></li>';
 	
 }
 
 function kontrollerMeny($ettervalget) {
-	echo '<li><a href="brukerlist.php">Kontroll Epost domene</a></li>';
-	echo '<li><a href="kontroll_avstemning.php">Kontroll Avstemning</a></li>';
 	if(!$ettervalget) { echo "<li><a href=\"resultatside.php\">Valg Resultat</a></li>";} // vises for alle bruker etter valget
+	echo '<li><a href="brukerlist.php">Brukerlist</a></li>';
+	echo '<li><a href="kontroll_avstemning.php">Avstemning ktrl.</a></li>';
 	
 }
 

@@ -19,7 +19,7 @@ echo <<<MKR
 <main>
   <form action="php/oppdater_password.php" method="post">
     <label for="oldpassword">Bekfret nåværende passord</label>
-    <input type="password" name="oldpassword" id="oldpassword" placeholder="Nåværende passord...">
+    <input type="password" name="oldpassword" id="oldpassword" placeholder="Nåværende passord..." autofocus required>
     <button type="submit" class="registerknapp" name="bekreft_pord">Bekreft</button>
   </form>
 </main>

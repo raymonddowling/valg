@@ -22,6 +22,11 @@ nav {
     grid-auto-flow: column;
 }
 
+nav a:focus, nav a:hover {
+  background-color: #95B0B7;
+
+}
+
 #hamburgermeny { /*endret fra nav button TILL #hamburgermeny */
     text-decoration: overline underline line-through solid white;
     color: rgba(89, 158, 175, 1);
@@ -84,10 +89,10 @@ footer h3 {
 }
 
 .dtpics {
-    display: none;
+  display: none;
 }
 
-p#nominasjon p.phpmelding{
+p#nominasjon, p.phpmelding{
     /* display message via cookie on return to page */
     background-color: yellow;
     font-weight:  600;
@@ -259,7 +264,11 @@ label + a {
 */
   
 /* Nettbrett */
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 868px) {
+
+  .dtpics {
+    display: inline;
+  }
 
     #choicepick {
         display: none;
@@ -307,6 +316,8 @@ label + a {
 
 /* Desktop */
 @media only screen and (min-width: 1050px) {
+
+
 
   #choicepick {
       display: inline;

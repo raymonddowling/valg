@@ -117,7 +117,7 @@ table {
   #########################################################################################*/
  
   /* Utnytt breden ved å dele skjeamet i kolonner */
-  @media only screen and (min-width: 768px) { 
+  @media only screen and (min-width: 868px) { 
     form[name = reg_form], form[name=valgdato] {
       display: block;
       column-count: 2;
@@ -160,6 +160,14 @@ table {
 
   
   @media only screen and (min-width: 1050px) {
+
+    form[name = reg_form], form[name=valgdato] {
+      display: block;
+      column-count: 3;
+    }
+    #email, #sluttforslag {
+      break-after: column;
+    }
 
     table#default {
       width: calc(90% - 400px); /* plass til bilde på default siden */
